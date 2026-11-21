@@ -18,34 +18,33 @@
    TOKENS — Lightest Blue Theme
    ══════════════════════════════════════════════════════════════ */
 :root{
-  /* Base backgrounds transformed to icy pale blue */
-  --sky-50:#F4F8FB; 
-  --sky-100:#E6F0F8;
-  --sky-200:#D4E4F0;
-  --sky-300:#B8CDDC;
-  --sand:#EBF2F8; /* Manifesto section background */
+  /* Distinct lightest blue backgrounds */
+  --sky-50: #E6F2FB; 
+  --sky-100: #D1E4F4;
+  --sky-200: #BBD5EC;
+  --sand: #DCEAF6; /* Manifesto section background */
 
-  --crimson:#DC143C;
-  --crimson-deep:#B80F2E;
+  --crimson: #DC143C;
+  --crimson-deep: #B80F2E;
   
-  --abyss:#121214;
-  --ink:#1c1c1f;
-  --muted:#55555b;
+  --abyss: #121214;
+  --ink: #1c1c1f;
+  --muted: #55555b;
   
-  --gold:#c6a875;
-  --gold-hi:#ecd7a8;
-  --foil:linear-gradient(105deg,#a98652 0%,#f0dcae 40%,#c6a875 62%,#a98652 100%);
+  --gold: #c6a875;
+  --gold-hi: #ecd7a8;
+  --foil: linear-gradient(105deg,#a98652 0%,#f0dcae 40%,#c6a875 62%,#a98652 100%);
   
-  --line:rgba(28,28,31,.12); /* Slightly softened for blue theme */
+  --line: rgba(28,28,31,.12);
 
-  --serif:'Bodoni Moda',Georgia,serif;
-  --sans:'Manrope',Arial,sans-serif;
-  --mono:'DM Mono',monospace;
+  --serif: 'Bodoni Moda', Georgia, serif;
+  --sans: 'Manrope', Arial, sans-serif;
+  --mono: 'DM Mono', monospace;
 
-  --wrap:min(1320px,100% - 9vw);
-  --ease:cubic-bezier(.16,1,.3,1);
-  --ease2:cubic-bezier(.65,0,.35,1);
-  --yellow:#c6a875;
+  --wrap: min(1320px, 100% - 9vw);
+  --ease: cubic-bezier(.16,1,.3,1);
+  --ease2: cubic-bezier(.65,0,.35,1);
+  --yellow: #c6a875;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -99,7 +98,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 
 /* ══════════════════════════════════════════════════════════════
-   F1 NAVBAR — CHARCOAL (More Transparent + Larger Logo)
+   F1 NAVBAR — CHARCOAL (Restored)
    ══════════════════════════════════════════════════════════════ */
 .topbar{
   position:fixed;inset:0 0 auto 0;z-index:50;
@@ -113,7 +112,7 @@ input,select,textarea{font:inherit;color:inherit}
   width:100%;max-width:1400px;height:84px;
   display:flex;align-items:center;padding:0 20px;
   border-radius:0px;
-  background-color:rgba(18,18,20,.45); /* More transparent */
+  background-color:rgba(18,18,20,.78); /* Restored solid charcoal */
   border:1px solid rgba(244,243,236,.14);
   backdrop-filter:blur(16px) saturate(130%);
   -webkit-backdrop-filter:blur(16px) saturate(130%);
@@ -149,12 +148,12 @@ input,select,textarea{font:inherit;color:inherit}
   .topbar{padding:10px 14px 0}
   .nav-shell{height:72px;padding:0 22px}
   .nav-meta{display:none}
-  .brand-image{height:52px} /* Scaled for mobile */
+  .brand-image{height:52px}
   .nav-right{right:22px}
 }
 @media (max-width:560px){
   .nav-shell{height:64px;padding:0 16px}
-  .brand-image{height:44px} /* Scaled for small mobile */
+  .brand-image{height:44px}
   .nav-btn{padding:9px 14px;font-size:9px}
   .nav-right{right:16px}
 }
@@ -171,13 +170,13 @@ input,select,textarea{font:inherit;color:inherit}
   position:absolute;top:-10%;bottom:-10%;left:0;right:0;
   background-image:url("https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=2000&q=80&auto=format&fit=crop");
   background-size:cover;background-position:center;
-  opacity:.12; /* Slightly reduced for blue theme */
+  opacity:.12;
   filter:saturate(.6) contrast(.95);
   will-change:transform;
 }
 .hero::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(244,248,251,.5) 0%,rgba(244,248,251,.2) 40%,rgba(244,248,251,.95) 100%);
+  background:linear-gradient(180deg,rgba(230,242,251,.5) 0%,rgba(230,242,251,.2) 40%,rgba(230,242,251,.95) 100%);
   pointer-events:none;
 }
 .hero-grid-bg{
@@ -227,7 +226,7 @@ input,select,textarea{font:inherit;color:inherit}
 .marquee-item{
   display:inline-flex;align-items:center;gap:26px;padding:0 32px;
   font:500 11px var(--mono);letter-spacing:.32em;text-transform:uppercase;
-  color:rgba(247,246,244,.78);
+  color:rgba(230,242,251,.78);
 }
 .marquee-item::before{content:"";width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
 @keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -247,7 +246,7 @@ input,select,textarea{font:inherit;color:inherit}
 @media (max-width:800px){.manifesto-copy{grid-template-columns:1fr;gap:36px}}
 
 /* ══════════════════════════════════════════════════════════════
-   CAPABILITIES
+   CAPABILITIES (Numbers Removed)
    ══════════════════════════════════════════════════════════════ */
 .capabilities{padding:clamp(90px,12vw,160px) 0;background:var(--sky-50);position:relative}
 .capabilities-inner{width:var(--wrap);margin:0 auto}
@@ -255,15 +254,13 @@ input,select,textarea{font:inherit;color:inherit}
 .capabilities-head .title{max-width:720px;margin-top:20px}
 .cap-list{border-top:1px solid var(--line)}
 .cap{
-  display:grid;grid-template-columns:auto 1fr auto;
+  display:grid;grid-template-columns:1fr auto;
   gap:clamp(24px,4vw,60px);align-items:start;
   padding:clamp(32px,4vw,56px) 0;
   border-bottom:1px solid var(--line);
   transition:padding .5s var(--ease),background .5s var(--ease);
 }
-.cap:hover{padding-left:16px;background:rgba(198,168,117,.04)}
-.cap-no{font:10px var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--crimson-deep);padding-top:8px;display:inline-flex;align-items:center;gap:10px}
-.cap-no::before{content:"";width:20px;height:1px;background:var(--gold)}
+.cap:hover{padding-left:16px;background:rgba(198,168,117,.06)}
 .cap-body h3{font:400 clamp(1.8rem,3.6vw,3.2rem)/1 var(--serif);letter-spacing:-.03em;color:var(--ink);margin-bottom:14px}
 .cap-body h3 em{font-style:italic;color:var(--crimson)}
 .cap-body p{font-size:15px;line-height:1.85;color:var(--muted);max-width:560px}
@@ -271,7 +268,7 @@ input,select,textarea{font:inherit;color:inherit}
 @media (max-width:800px){.cap{grid-template-columns:1fr;gap:14px}.cap-tag{text-align:left;padding-top:0}}
 
 /* ══════════════════════════════════════════════════════════════
-   TYPOLOGIES
+   TYPOLOGIES (Numbers Removed)
    ══════════════════════════════════════════════════════════════ */
 .typologies{padding:clamp(100px,13vw,180px) 0;background:var(--sky-50);position:relative}
 .typologies-inner{width:var(--wrap);margin:0 auto}
@@ -304,14 +301,14 @@ input,select,textarea{font:inherit;color:inherit}
 }
 
 /* ══════════════════════════════════════════════════════════════
-   PROCESS
+   PROCESS (Numbers Removed)
    ══════════════════════════════════════════════════════════════ */
 .process{padding:clamp(100px,13vw,180px) 0;background:var(--abyss);color:var(--sky-50);position:relative;overflow:hidden}
 .process::before{
   content:"";position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(244,248,251,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(244,248,251,.04) 1px,transparent 1px);
+    linear-gradient(rgba(230,242,251,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(230,242,251,.04) 1px,transparent 1px);
   background-size:88px 88px;pointer-events:none;
 }
 .process-inner{width:var(--wrap);margin:0 auto;position:relative;z-index:2}
@@ -320,15 +317,13 @@ input,select,textarea{font:inherit;color:inherit}
 .process .title{color:var(--sky-50)}
 .process .title em{color:var(--gold-hi)}
 .process-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(40px,6vw,80px);align-items:start;margin-top:clamp(56px,7vw,80px)}
-.process-list{border-top:1px solid rgba(244,248,251,.14)}
-.process-item{padding:32px 0;border-bottom:1px solid rgba(244,248,251,.14);display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;transition:padding .5s var(--ease)}
+.process-list{border-top:1px solid rgba(230,242,251,.14)}
+.process-item{padding:32px 0;border-bottom:1px solid rgba(230,242,251,.14);display:block;transition:padding .5s var(--ease)}
 .process-item:hover{padding-left:14px}
-.process-no{display:inline-flex;align-items:center;gap:10px;font:10px var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);padding-top:6px}
-.process-no::before{content:"";width:20px;height:1px;background:var(--gold)}
+.process-no{display:inline-block;font:10px var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
 .process-body h3{font:400 clamp(1.5rem,2.8vw,2.4rem)/1.05 var(--serif);letter-spacing:-.025em;color:var(--sky-50);margin-bottom:12px}
-.process-body p{font-size:14px;line-height:1.85;color:rgba(244,248,251,.6);max-width:520px}
+.process-body p{font-size:14px;line-height:1.85;color:rgba(230,242,251,.6);max-width:520px}
 @media (max-width:900px){.process-grid{grid-template-columns:1fr}}
-@media (max-width:560px){.process-item{grid-template-columns:1fr;gap:12px}}
 
 /* ══════════════════════════════════════════════════════════════
    STANDARDS
@@ -356,13 +351,13 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .contact-inner{width:var(--wrap);margin:0 auto;position:relative;z-index:2}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,7vw,90px);align-items:start}
-.contact .eyebrow{color:rgba(244,248,251,.75)}
-.contact .eyebrow::before{background:rgba(244,248,251,.5)}
+.contact .eyebrow{color:rgba(230,242,251,.75)}
+.contact .eyebrow::before{background:rgba(230,242,251,.5)}
 .contact .title{color:var(--sky-50);max-width:640px}
 .contact .title em{color:var(--gold-hi)}
-.contact-lede{font-size:clamp(14px,1.1vw,16px);line-height:1.8;color:rgba(244,248,251,.78);margin-top:32px;max-width:420px}
-.contact-meta{margin-top:56px;padding-top:32px;border-top:1px solid rgba(244,248,251,.2);display:flex;flex-direction:column;gap:20px}
-.contact-meta a{font-size:15px;line-height:1.6;color:var(--sky-50);border-bottom:1px solid rgba(244,248,251,.24);width:fit-content;padding-bottom:2px;transition:border-color .3s ease}
+.contact-lede{font-size:clamp(14px,1.1vw,16px);line-height:1.8;color:rgba(230,242,251,.78);margin-top:32px;max-width:420px}
+.contact-meta{margin-top:56px;padding-top:32px;border-top:1px solid rgba(230,242,251,.2);display:flex;flex-direction:column;gap:20px}
+.contact-meta a{font-size:15px;line-height:1.6;color:var(--sky-50);border-bottom:1px solid rgba(230,242,251,.24);width:fit-content;padding-bottom:2px;transition:border-color .3s ease}
 .contact-meta a:hover{border-color:var(--gold-hi)}
 
 .enquiry-form{
@@ -374,11 +369,11 @@ input,select,textarea{font:inherit;color:inherit}
 .form-head{
   display:flex;justify-content:space-between;align-items:center;
   padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.15);
-  font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,248,251,.7);
+  font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(230,242,251,.7);
 }
 .form-head-label{color:var(--gold-hi)}
 .field{display:flex;flex-direction:column;gap:10px;position:relative}
-.field label{font:9px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,248,251,.62)}
+.field label{font:9px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(230,242,251,.62)}
 .field input,.field select,.field textarea{
   width:100%;background:transparent;border:0;
   border-bottom:1px solid rgba(255,255,255,.28);
@@ -386,7 +381,7 @@ input,select,textarea{font:inherit;color:inherit}
   outline:none;transition:border-color .3s ease;font-family:inherit;border-radius:0;
 }
 .field textarea{resize:vertical;min-height:80px;line-height:1.6}
-.field input::placeholder,.field textarea::placeholder{color:rgba(244,248,251,.4)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(230,242,251,.4)}
 .field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'><path d='M1 1l4.5 4.5L10 1' stroke='%23ecd7a8' stroke-width='1.2' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 2px center;padding-right:26px;cursor:pointer}
 .field select option{background:var(--crimson);color:var(--sky-50)}
 .field:focus-within input,.field:focus-within select,.field:focus-within textarea{border-color:var(--gold-hi)}
@@ -400,18 +395,18 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.25)}
 .submit-btn span{font-size:14px}
-.form-note{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(244,248,251,.62)}
+.form-note{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(230,242,251,.62)}
 .form-status{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi);display:none;padding-top:8px}
 .form-status.on{display:block}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
 
 /* ══════════════════════════════════════════════════════════════
-   FOOTER — LUXURY
+   FOOTER — LUXURY (Nav Numbers Removed)
    ══════════════════════════════════════════════════════════════ */
 .lux-footer{
   position:relative;
   background:#0a0a0b;
-  color:rgba(244,248,251,.8);
+  color:rgba(230,242,251,.8);
   overflow:hidden;
 }
 .lux-footer::before{
@@ -427,8 +422,8 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-footer-grid{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(244,248,251,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(244,248,251,.03) 1px,transparent 1px);
+    linear-gradient(rgba(230,242,251,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(230,242,251,.03) 1px,transparent 1px);
   background-size:80px 80px;
   pointer-events:none;z-index:0;
 }
@@ -463,7 +458,7 @@ input,select,textarea{font:inherit;color:inherit}
   display:grid;grid-template-columns:1.55fr 1fr;
   gap:clamp(40px,6vw,90px);align-items:end;
   padding-bottom:clamp(60px,8vw,90px);
-  border-bottom:1px solid rgba(244,248,251,.1);
+  border-bottom:1px solid rgba(230,242,251,.1);
 }
 
 .lux-footer-kicker{
@@ -496,7 +491,7 @@ input,select,textarea{font:inherit;color:inherit}
   position:relative;
   padding:clamp(24px,3vw,36px);
   background:rgba(255,255,255,.02);
-  border:1px solid rgba(244,248,251,.1);
+  border:1px solid rgba(230,242,251,.1);
   backdrop-filter:blur(20px) saturate(140%);
   -webkit-backdrop-filter:blur(20px) saturate(140%);
   box-shadow:0 8px 32px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.05);
@@ -512,7 +507,7 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-live-head{
   display:flex;align-items:center;gap:10px;
   font:10px var(--mono);letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(244,248,251,.55);margin-bottom:clamp(24px,3vw,36px);
+  color:rgba(230,242,251,.55);margin-bottom:clamp(24px,3vw,36px);
 }
 .lux-live-dot{
   width:6px;height:6px;background:#4ade80;border-radius:50%;
@@ -532,11 +527,11 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .lux-live-date{
   font:11px var(--mono);letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(244,248,251,.5);
+  color:rgba(230,242,251,.5);
 }
 
 .lux-live-sep{
-  height:1px;background:rgba(244,248,251,.1);
+  height:1px;background:rgba(230,242,251,.1);
   margin:clamp(20px,3vw,28px) 0;
 }
 
@@ -559,8 +554,8 @@ input,select,textarea{font:inherit;color:inherit}
   display:flex;align-items:center;justify-content:space-between;
   gap:24px;
   padding:clamp(24px,3.5vw,40px) clamp(28px,4vw,52px);
-  border-top:1px solid rgba(244,248,251,.14);
-  border-bottom:1px solid rgba(244,248,251,.14);
+  border-top:1px solid rgba(230,242,251,.14);
+  border-bottom:1px solid rgba(230,242,251,.14);
   background:transparent;
   color:#f4f3ec;
   cursor:pointer;
@@ -597,52 +592,42 @@ input,select,textarea{font:inherit;color:inherit}
   display:grid;grid-template-columns:1.1fr 1fr;
   gap:clamp(40px,6vw,90px);
   padding:clamp(60px,8vw,100px) 0 clamp(60px,7vw,90px);
-  border-bottom:1px solid rgba(244,248,251,.1);
+  border-bottom:1px solid rgba(230,242,251,.1);
 }
 
 .lux-footer-section-label{
   display:inline-flex;align-items:center;gap:12px;
   font:9px var(--mono);letter-spacing:.28em;text-transform:uppercase;
-  color:rgba(244,248,251,.4);
+  color:rgba(230,242,251,.4);
   margin-bottom:clamp(24px,3vw,36px);
 }
 .lux-footer-section-label::after{
   content:"";flex:1;max-width:60px;height:1px;
-  background:linear-gradient(90deg,rgba(244,248,251,.2),transparent);
+  background:linear-gradient(90deg,rgba(230,242,251,.2),transparent);
 }
 
 .lux-footer-nav{
   display:flex;flex-direction:column;
 }
 .lux-nav-item{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:baseline;gap:clamp(16px,2vw,28px);
+  display:flex;justify-content:space-between;align-items:center;
   padding:clamp(14px,2vw,22px) 0;
-  border-bottom:1px solid rgba(244,248,251,.08);
+  border-bottom:1px solid rgba(230,242,251,.08);
   color:#f4f3ec;
   transition:padding .5s var(--ease),color .3s ease;
   will-change:transform,padding;
 }
-.lux-nav-item:first-of-type{border-top:1px solid rgba(244,248,251,.08)}
-.lux-nav-num{
-  font:10px var(--mono);letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(244,248,251,.4);
-  transition:color .3s ease;
-  padding-top:6px;
-}
+.lux-nav-item:first-of-type{border-top:1px solid rgba(230,242,251,.08)}
 .lux-nav-label{
   font:400 clamp(1.4rem,2.6vw,2.2rem)/1.1 var(--serif);
   letter-spacing:-.02em;
 }
 .lux-nav-item svg{
   width:20px;height:20px;
-  color:rgba(244,248,251,.4);
+  color:rgba(230,242,251,.4);
   transition:color .3s ease,transform .5s var(--ease);
-  align-self:center;
 }
 .lux-nav-item:hover{padding-left:14px;color:var(--gold-hi)}
-.lux-nav-item:hover .lux-nav-num{color:var(--gold)}
 .lux-nav-item:hover svg{color:var(--gold-hi);transform:translate(4px,-4px)}
 
 .lux-footer-info{
@@ -652,12 +637,12 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-info-col{display:flex;flex-direction:column;gap:12px}
 .lux-info-label{
   font:9px var(--mono);letter-spacing:.28em;text-transform:uppercase;
-  color:rgba(244,248,251,.45);
+  color:rgba(230,242,251,.45);
   margin-bottom:6px;
 }
 .lux-info-col p,.lux-info-col a{
   font-size:13px;line-height:1.85;
-  color:rgba(244,248,251,.75);
+  color:rgba(230,242,251,.75);
   transition:color .3s ease;
 }
 .lux-info-col a{
@@ -692,8 +677,8 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-footer-marquee{
   position:relative;z-index:2;
   overflow:hidden;
-  border-top:1px solid rgba(244,248,251,.1);
-  border-bottom:1px solid rgba(244,248,251,.1);
+  border-top:1px solid rgba(230,242,251,.1);
+  border-bottom:1px solid rgba(230,242,251,.1);
   padding:clamp(24px,4vw,42px) 0;
   background:rgba(0,0,0,.3);
 }
@@ -715,7 +700,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .lux-marquee-sep{
   font:400 clamp(2rem,5vw,4rem)/1 var(--serif);
-  color:rgba(244,248,251,.35);
+  color:rgba(230,242,251,.35);
 }
 
 .lux-footer-bottom{
@@ -727,7 +712,7 @@ input,select,textarea{font:inherit;color:inherit}
   width:var(--wrap);max-width:1440px;margin:0 auto;
   display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
   font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(244,248,251,.45);
+  color:rgba(230,242,251,.45);
 }
 .lux-footer-bottom-right{color:var(--gold);opacity:.85}
 
@@ -851,7 +836,6 @@ input,select,textarea{font:inherit;color:inherit}
       </div>
       <div class="cap-list">
         <article class="cap reveal-up">
-          <span class="cap-no">01</span>
           <div class="cap-body">
             <h3>Build</h3>
             <p>Ground-up construction — residential, commercial and mixed-use. Every slab, joint and finish executed to a single in-house standard, regardless of scale.</p>
@@ -859,7 +843,6 @@ input,select,textarea{font:inherit;color:inherit}
           <span class="cap-tag">Ground-up · Fit-out</span>
         </article>
         <article class="cap reveal-up">
-          <span class="cap-no">02</span>
           <div class="cap-body">
             <h3>Develop</h3>
             <p>Land to launch. Feasibility, design, approvals, procurement and delivery, managed end-to-end under one roof — so nothing gets lost between teams.</p>
@@ -867,7 +850,6 @@ input,select,textarea{font:inherit;color:inherit}
           <span class="cap-tag">Land · Design · Approvals</span>
         </article>
         <article class="cap reveal-up">
-          <span class="cap-no">03</span>
           <div class="cap-body">
             <h3><em>Deliver</em></h3>
             <p>On the date promised, at the specification agreed. We stay engaged after handover to ensure the building performs exactly as intended.</p>
@@ -894,7 +876,7 @@ input,select,textarea{font:inherit;color:inherit}
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80&auto=format&fit=crop" alt="Residential architecture" loading="lazy">
           </div>
           <div class="typ-info">
-            <div class="typ-num">01 / Residential</div>
+            <div class="typ-num">Residential</div>
             <h3 class="typ-name">Homes built around <em>how people live.</em></h3>
             <p class="typ-desc">Apartments, villas and boutique residences designed around light, silence, privacy and the way a room actually feels at 7 a.m. — not how it photographs.</p>
             <div class="typ-meta">
@@ -908,7 +890,7 @@ input,select,textarea{font:inherit;color:inherit}
             <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=80&auto=format&fit=crop" alt="Redevelopment architecture" loading="lazy">
           </div>
           <div class="typ-info">
-            <div class="typ-num">02 / Redevelopment</div>
+            <div class="typ-num">Redevelopment</div>
             <h3 class="typ-name">Bringing ageing buildings <em>forward.</em></h3>
             <p class="typ-desc">Careful redevelopment that respects the original fabric while meeting the needs of the next generation — without losing what made the building worth keeping.</p>
             <div class="typ-meta">
@@ -922,7 +904,7 @@ input,select,textarea{font:inherit;color:inherit}
             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&q=80&auto=format&fit=crop" alt="Ultra-luxury architecture" loading="lazy">
           </div>
           <div class="typ-info">
-            <div class="typ-num">03 / Ultra-Luxury</div>
+            <div class="typ-num">Ultra-Luxury</div>
             <h3 class="typ-name">Every detail, <em>specified in-house.</em></h3>
             <p class="typ-desc">From the slab to the switch plate — materials, junctions, acoustics and finishes resolved before a single trade is on site. The result is a house that feels finished from the day you move in.</p>
             <div class="typ-meta">
@@ -948,29 +930,29 @@ input,select,textarea{font:inherit;color:inherit}
         </div>
         <div class="process-list">
           <div class="process-item reveal-up">
-            <span class="process-no">01 Listen</span>
             <div class="process-body">
+              <span class="process-no">Listen</span>
               <h3>Understand the site.</h3>
               <p>Structure, adjacencies, intent, constraints. We start by reading the ground before we draw anything on it.</p>
             </div>
           </div>
           <div class="process-item reveal-up">
-            <span class="process-no">02 Design</span>
             <div class="process-body">
+              <span class="process-no">Design</span>
               <h3>Draw the building.</h3>
               <p>Every line, every material, every junction — resolved on paper before it's resolved on site.</p>
             </div>
           </div>
           <div class="process-item reveal-up">
-            <span class="process-no">03 Build</span>
             <div class="process-body">
+              <span class="process-no">Build</span>
               <h3>Coordinate the invisible.</h3>
               <p>MEP, finishes, waterproofing, structure — all moving to a single schedule, verified weekly.</p>
             </div>
           </div>
           <div class="process-item reveal-up">
-            <span class="process-no">04 Deliver</span>
             <div class="process-body">
+              <span class="process-no">Deliver</span>
               <h3>Hand over the keys.</h3>
               <p>On the date promised, at the standard specified. We stay engaged after handover to make sure it holds.</p>
             </div>
@@ -1030,7 +1012,6 @@ input,select,textarea{font:inherit;color:inherit}
         <form class="enquiry-form" id="enquiryForm" novalidate>
           <div class="form-head">
             <span class="form-head-label">Project enquiry</span>
-            <span>01 / 04</span>
           </div>
           <div class="field">
             <label for="fName">Your name</label>
@@ -1116,28 +1097,24 @@ input,select,textarea{font:inherit;color:inherit}
       <div class="lux-footer-nav">
         <span class="lux-footer-section-label">Navigate</span>
         <a href="#who" class="lux-nav-item">
-          <span class="lux-nav-num">01</span>
           <span class="lux-nav-label">What we do</span>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
         <a href="#who" class="lux-nav-item">
-          <span class="lux-nav-num">02</span>
           <span class="lux-nav-label">Typologies</span>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
         <a href="#contact" class="lux-nav-item">
-          <span class="lux-nav-num">03</span>
           <span class="lux-nav-label">How we work</span>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
         <a href="#contact" class="lux-nav-item">
-          <span class="lux-nav-num">04</span>
           <span class="lux-nav-label">Contact</span>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1178,7 +1155,7 @@ input,select,textarea{font:inherit;color:inherit}
         </div>
         <div class="lux-info-col">
           <span class="lux-info-label">Follow</span>
-          <p style="color:rgba(244,248,251,.5);font-size:12px;line-height:1.8">For site visits, updates<br>and new launches —<br>follow along.</p>
+          <p style="color:rgba(230,242,251,.5);font-size:12px;line-height:1.8">For site visits, updates<br>and new launches —<br>follow along.</p>
         </div>
       </div>
     </div>
@@ -1264,8 +1241,8 @@ input,select,textarea{font:inherit;color:inherit}
 
     const chrome = Math.max(0, 1 - Math.max(0, (p - CHROME_START) / (1 - CHROME_START)));
 
-    // Updated to 0.45 for increased transparency
-    shell.style.backgroundColor = 'rgba(18,18,20,' + (0.45 * chrome).toFixed(3) + ')';
+    // Restored to .78
+    shell.style.backgroundColor = 'rgba(18,18,20,' + (0.78 * chrome).toFixed(3) + ')';
 
     const blur = 16 + 28 * (1 - chrome);
     const sat  = 130 + 50 * (1 - chrome);
