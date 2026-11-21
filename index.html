@@ -15,19 +15,28 @@
 
 <style>
 /* ══════════════════════════════════════════════════════════════
-   TOKENS
+   TOKENS — Lightest Blue Theme
    ══════════════════════════════════════════════════════════════ */
 :root{
-  --sky-50:#f7f6f4;--sky-100:#efedea;--sky-200:#e3dfd9;--sky-300:#cfc9c0;
-  
-  /* UPDATED: True Crimson Red */
+  /* Base backgrounds transformed to icy pale blue */
+  --sky-50:#F4F8FB; 
+  --sky-100:#E6F0F8;
+  --sky-200:#D4E4F0;
+  --sky-300:#B8CDDC;
+  --sand:#EBF2F8; /* Manifesto section background */
+
   --crimson:#DC143C;
   --crimson-deep:#B80F2E;
   
-  --abyss:#121214;--ink:#1c1c1f;--muted:#55555b;--sand:#f1ece2;
-  --gold:#c6a875;--gold-hi:#ecd7a8;
+  --abyss:#121214;
+  --ink:#1c1c1f;
+  --muted:#55555b;
+  
+  --gold:#c6a875;
+  --gold-hi:#ecd7a8;
   --foil:linear-gradient(105deg,#a98652 0%,#f0dcae 40%,#c6a875 62%,#a98652 100%);
-  --line:rgba(28,28,31,.15);
+  
+  --line:rgba(28,28,31,.12); /* Slightly softened for blue theme */
 
   --serif:'Bodoni Moda',Georgia,serif;
   --sans:'Manrope',Arial,sans-serif;
@@ -90,7 +99,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 
 /* ══════════════════════════════════════════════════════════════
-   F1 NAVBAR — CHARCOAL (behaviour identical)
+   F1 NAVBAR — CHARCOAL (More Transparent + Larger Logo)
    ══════════════════════════════════════════════════════════════ */
 .topbar{
   position:fixed;inset:0 0 auto 0;z-index:50;
@@ -104,7 +113,7 @@ input,select,textarea{font:inherit;color:inherit}
   width:100%;max-width:1400px;height:84px;
   display:flex;align-items:center;padding:0 20px;
   border-radius:0px;
-  background-color:rgba(18,18,20,.78);
+  background-color:rgba(18,18,20,.45); /* More transparent */
   border:1px solid rgba(244,243,236,.14);
   backdrop-filter:blur(16px) saturate(130%);
   -webkit-backdrop-filter:blur(16px) saturate(130%);
@@ -115,7 +124,7 @@ input,select,textarea{font:inherit;color:inherit}
 .brand-wordmark{display:inline-flex;align-items:center;gap:20px}
 .brand-icon{font:700 44px/1 var(--mono);color:var(--gold);letter-spacing:-.02em;text-shadow:0 0 24px rgba(198,168,117,.4)}
 .brand-word{font:500 22px/1 var(--serif);letter-spacing:.42em;text-transform:uppercase;color:#f4f3ec}
-.brand-image{display:none;height:48px;width:auto;transition:filter .35s ease,transform .35s ease}
+.brand-image{display:none;height:64px;width:auto;transition:filter .35s ease,transform .35s ease}
 .brand-image:hover{transform:scale(1.03)}
 .brand.has-image .brand-wordmark{display:none}
 .brand.has-image .brand-image{display:block}
@@ -140,12 +149,12 @@ input,select,textarea{font:inherit;color:inherit}
   .topbar{padding:10px 14px 0}
   .nav-shell{height:72px;padding:0 22px}
   .nav-meta{display:none}
-  .brand-image{height:38px}
+  .brand-image{height:52px} /* Scaled for mobile */
   .nav-right{right:22px}
 }
 @media (max-width:560px){
   .nav-shell{height:64px;padding:0 16px}
-  .brand-image{height:32px}
+  .brand-image{height:44px} /* Scaled for small mobile */
   .nav-btn{padding:9px 14px;font-size:9px}
   .nav-right{right:16px}
 }
@@ -162,12 +171,13 @@ input,select,textarea{font:inherit;color:inherit}
   position:absolute;top:-10%;bottom:-10%;left:0;right:0;
   background-image:url("https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=2000&q=80&auto=format&fit=crop");
   background-size:cover;background-position:center;
-  opacity:.14;filter:saturate(.6) contrast(.95);
+  opacity:.12; /* Slightly reduced for blue theme */
+  filter:saturate(.6) contrast(.95);
   will-change:transform;
 }
 .hero::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(247,246,244,.4) 0%,rgba(247,246,244,.1) 40%,rgba(247,246,244,.85) 100%);
+  background:linear-gradient(180deg,rgba(244,248,251,.5) 0%,rgba(244,248,251,.2) 40%,rgba(244,248,251,.95) 100%);
   pointer-events:none;
 }
 .hero-grid-bg{
@@ -300,8 +310,8 @@ input,select,textarea{font:inherit;color:inherit}
 .process::before{
   content:"";position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(247,246,244,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(247,246,244,.04) 1px,transparent 1px);
+    linear-gradient(rgba(244,248,251,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(244,248,251,.04) 1px,transparent 1px);
   background-size:88px 88px;pointer-events:none;
 }
 .process-inner{width:var(--wrap);margin:0 auto;position:relative;z-index:2}
@@ -310,13 +320,13 @@ input,select,textarea{font:inherit;color:inherit}
 .process .title{color:var(--sky-50)}
 .process .title em{color:var(--gold-hi)}
 .process-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(40px,6vw,80px);align-items:start;margin-top:clamp(56px,7vw,80px)}
-.process-list{border-top:1px solid rgba(247,246,244,.14)}
-.process-item{padding:32px 0;border-bottom:1px solid rgba(247,246,244,.14);display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;transition:padding .5s var(--ease)}
+.process-list{border-top:1px solid rgba(244,248,251,.14)}
+.process-item{padding:32px 0;border-bottom:1px solid rgba(244,248,251,.14);display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;transition:padding .5s var(--ease)}
 .process-item:hover{padding-left:14px}
 .process-no{display:inline-flex;align-items:center;gap:10px;font:10px var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);padding-top:6px}
 .process-no::before{content:"";width:20px;height:1px;background:var(--gold)}
 .process-body h3{font:400 clamp(1.5rem,2.8vw,2.4rem)/1.05 var(--serif);letter-spacing:-.025em;color:var(--sky-50);margin-bottom:12px}
-.process-body p{font-size:14px;line-height:1.85;color:rgba(247,246,244,.6);max-width:520px}
+.process-body p{font-size:14px;line-height:1.85;color:rgba(244,248,251,.6);max-width:520px}
 @media (max-width:900px){.process-grid{grid-template-columns:1fr}}
 @media (max-width:560px){.process-item{grid-template-columns:1fr;gap:12px}}
 
@@ -346,13 +356,13 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .contact-inner{width:var(--wrap);margin:0 auto;position:relative;z-index:2}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,7vw,90px);align-items:start}
-.contact .eyebrow{color:rgba(247,246,244,.75)}
-.contact .eyebrow::before{background:rgba(247,246,244,.5)}
+.contact .eyebrow{color:rgba(244,248,251,.75)}
+.contact .eyebrow::before{background:rgba(244,248,251,.5)}
 .contact .title{color:var(--sky-50);max-width:640px}
 .contact .title em{color:var(--gold-hi)}
-.contact-lede{font-size:clamp(14px,1.1vw,16px);line-height:1.8;color:rgba(247,246,244,.78);margin-top:32px;max-width:420px}
-.contact-meta{margin-top:56px;padding-top:32px;border-top:1px solid rgba(247,246,244,.2);display:flex;flex-direction:column;gap:20px}
-.contact-meta a{font-size:15px;line-height:1.6;color:var(--sky-50);border-bottom:1px solid rgba(247,246,244,.24);width:fit-content;padding-bottom:2px;transition:border-color .3s ease}
+.contact-lede{font-size:clamp(14px,1.1vw,16px);line-height:1.8;color:rgba(244,248,251,.78);margin-top:32px;max-width:420px}
+.contact-meta{margin-top:56px;padding-top:32px;border-top:1px solid rgba(244,248,251,.2);display:flex;flex-direction:column;gap:20px}
+.contact-meta a{font-size:15px;line-height:1.6;color:var(--sky-50);border-bottom:1px solid rgba(244,248,251,.24);width:fit-content;padding-bottom:2px;transition:border-color .3s ease}
 .contact-meta a:hover{border-color:var(--gold-hi)}
 
 .enquiry-form{
@@ -364,11 +374,11 @@ input,select,textarea{font:inherit;color:inherit}
 .form-head{
   display:flex;justify-content:space-between;align-items:center;
   padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.15);
-  font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(247,246,244,.7);
+  font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,248,251,.7);
 }
 .form-head-label{color:var(--gold-hi)}
 .field{display:flex;flex-direction:column;gap:10px;position:relative}
-.field label{font:9px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(247,246,244,.62)}
+.field label{font:9px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:rgba(244,248,251,.62)}
 .field input,.field select,.field textarea{
   width:100%;background:transparent;border:0;
   border-bottom:1px solid rgba(255,255,255,.28);
@@ -376,7 +386,7 @@ input,select,textarea{font:inherit;color:inherit}
   outline:none;transition:border-color .3s ease;font-family:inherit;border-radius:0;
 }
 .field textarea{resize:vertical;min-height:80px;line-height:1.6}
-.field input::placeholder,.field textarea::placeholder{color:rgba(247,246,244,.4)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(244,248,251,.4)}
 .field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'><path d='M1 1l4.5 4.5L10 1' stroke='%23ecd7a8' stroke-width='1.2' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 2px center;padding-right:26px;cursor:pointer}
 .field select option{background:var(--crimson);color:var(--sky-50)}
 .field:focus-within input,.field:focus-within select,.field:focus-within textarea{border-color:var(--gold-hi)}
@@ -390,7 +400,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.25)}
 .submit-btn span{font-size:14px}
-.form-note{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(247,246,244,.62)}
+.form-note{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(244,248,251,.62)}
 .form-status{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi);display:none;padding-top:8px}
 .form-status.on{display:block}
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
@@ -401,7 +411,7 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-footer{
   position:relative;
   background:#0a0a0b;
-  color:rgba(244,243,236,.8);
+  color:rgba(244,248,251,.8);
   overflow:hidden;
 }
 .lux-footer::before{
@@ -417,8 +427,8 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-footer-grid{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(244,243,236,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(244,243,236,.03) 1px,transparent 1px);
+    linear-gradient(rgba(244,248,251,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(244,248,251,.03) 1px,transparent 1px);
   background-size:80px 80px;
   pointer-events:none;z-index:0;
 }
@@ -453,7 +463,7 @@ input,select,textarea{font:inherit;color:inherit}
   display:grid;grid-template-columns:1.55fr 1fr;
   gap:clamp(40px,6vw,90px);align-items:end;
   padding-bottom:clamp(60px,8vw,90px);
-  border-bottom:1px solid rgba(244,243,236,.1);
+  border-bottom:1px solid rgba(244,248,251,.1);
 }
 
 .lux-footer-kicker{
@@ -486,7 +496,7 @@ input,select,textarea{font:inherit;color:inherit}
   position:relative;
   padding:clamp(24px,3vw,36px);
   background:rgba(255,255,255,.02);
-  border:1px solid rgba(244,243,236,.1);
+  border:1px solid rgba(244,248,251,.1);
   backdrop-filter:blur(20px) saturate(140%);
   -webkit-backdrop-filter:blur(20px) saturate(140%);
   box-shadow:0 8px 32px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.05);
@@ -502,7 +512,7 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-live-head{
   display:flex;align-items:center;gap:10px;
   font:10px var(--mono);letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(244,243,236,.55);margin-bottom:clamp(24px,3vw,36px);
+  color:rgba(244,248,251,.55);margin-bottom:clamp(24px,3vw,36px);
 }
 .lux-live-dot{
   width:6px;height:6px;background:#4ade80;border-radius:50%;
@@ -522,11 +532,11 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .lux-live-date{
   font:11px var(--mono);letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(244,243,236,.5);
+  color:rgba(244,248,251,.5);
 }
 
 .lux-live-sep{
-  height:1px;background:rgba(244,243,236,.1);
+  height:1px;background:rgba(244,248,251,.1);
   margin:clamp(20px,3vw,28px) 0;
 }
 
@@ -549,8 +559,8 @@ input,select,textarea{font:inherit;color:inherit}
   display:flex;align-items:center;justify-content:space-between;
   gap:24px;
   padding:clamp(24px,3.5vw,40px) clamp(28px,4vw,52px);
-  border-top:1px solid rgba(244,243,236,.14);
-  border-bottom:1px solid rgba(244,243,236,.14);
+  border-top:1px solid rgba(244,248,251,.14);
+  border-bottom:1px solid rgba(244,248,251,.14);
   background:transparent;
   color:#f4f3ec;
   cursor:pointer;
@@ -587,18 +597,18 @@ input,select,textarea{font:inherit;color:inherit}
   display:grid;grid-template-columns:1.1fr 1fr;
   gap:clamp(40px,6vw,90px);
   padding:clamp(60px,8vw,100px) 0 clamp(60px,7vw,90px);
-  border-bottom:1px solid rgba(244,243,236,.1);
+  border-bottom:1px solid rgba(244,248,251,.1);
 }
 
 .lux-footer-section-label{
   display:inline-flex;align-items:center;gap:12px;
   font:9px var(--mono);letter-spacing:.28em;text-transform:uppercase;
-  color:rgba(244,243,236,.4);
+  color:rgba(244,248,251,.4);
   margin-bottom:clamp(24px,3vw,36px);
 }
 .lux-footer-section-label::after{
   content:"";flex:1;max-width:60px;height:1px;
-  background:linear-gradient(90deg,rgba(244,243,236,.2),transparent);
+  background:linear-gradient(90deg,rgba(244,248,251,.2),transparent);
 }
 
 .lux-footer-nav{
@@ -609,15 +619,15 @@ input,select,textarea{font:inherit;color:inherit}
   grid-template-columns:auto 1fr auto;
   align-items:baseline;gap:clamp(16px,2vw,28px);
   padding:clamp(14px,2vw,22px) 0;
-  border-bottom:1px solid rgba(244,243,236,.08);
+  border-bottom:1px solid rgba(244,248,251,.08);
   color:#f4f3ec;
   transition:padding .5s var(--ease),color .3s ease;
   will-change:transform,padding;
 }
-.lux-nav-item:first-of-type{border-top:1px solid rgba(244,243,236,.08)}
+.lux-nav-item:first-of-type{border-top:1px solid rgba(244,248,251,.08)}
 .lux-nav-num{
   font:10px var(--mono);letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(244,243,236,.4);
+  color:rgba(244,248,251,.4);
   transition:color .3s ease;
   padding-top:6px;
 }
@@ -627,7 +637,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .lux-nav-item svg{
   width:20px;height:20px;
-  color:rgba(244,243,236,.4);
+  color:rgba(244,248,251,.4);
   transition:color .3s ease,transform .5s var(--ease);
   align-self:center;
 }
@@ -642,12 +652,12 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-info-col{display:flex;flex-direction:column;gap:12px}
 .lux-info-label{
   font:9px var(--mono);letter-spacing:.28em;text-transform:uppercase;
-  color:rgba(244,243,236,.45);
+  color:rgba(244,248,251,.45);
   margin-bottom:6px;
 }
 .lux-info-col p,.lux-info-col a{
   font-size:13px;line-height:1.85;
-  color:rgba(244,243,236,.75);
+  color:rgba(244,248,251,.75);
   transition:color .3s ease;
 }
 .lux-info-col a{
@@ -682,8 +692,8 @@ input,select,textarea{font:inherit;color:inherit}
 .lux-footer-marquee{
   position:relative;z-index:2;
   overflow:hidden;
-  border-top:1px solid rgba(244,243,236,.1);
-  border-bottom:1px solid rgba(244,243,236,.1);
+  border-top:1px solid rgba(244,248,251,.1);
+  border-bottom:1px solid rgba(244,248,251,.1);
   padding:clamp(24px,4vw,42px) 0;
   background:rgba(0,0,0,.3);
 }
@@ -705,7 +715,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .lux-marquee-sep{
   font:400 clamp(2rem,5vw,4rem)/1 var(--serif);
-  color:rgba(244,243,236,.35);
+  color:rgba(244,248,251,.35);
 }
 
 .lux-footer-bottom{
@@ -717,7 +727,7 @@ input,select,textarea{font:inherit;color:inherit}
   width:var(--wrap);max-width:1440px;margin:0 auto;
   display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
   font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(244,243,236,.45);
+  color:rgba(244,248,251,.45);
 }
 .lux-footer-bottom-right{color:var(--gold);opacity:.85}
 
@@ -780,7 +790,7 @@ input,select,textarea{font:inherit;color:inherit}
         <span class="ln"><span>We <em>deliver.</em></span></span>
       </h1>
       <div class="hero-foot">
-        <p class="hero-sub">Considered construction, thoughtful redevelopment, and enduring architecture in Mumbai. Every project measured not in square feet, but in decades of quiet service.</p>
+        <p class="hero-sub">Considered construction, thoughtful redevelopment, and enduring architecture in Mumbai. We pay attention to the details that matter long after the keys are handed over.</p>
         <div class="hero-meta">
           <span>Build</span>
           <span>Develop</span>
@@ -813,17 +823,17 @@ input,select,textarea{font:inherit;color:inherit}
     <div class="manifesto-inner">
       <div class="eyebrow">Our philosophy</div>
       <h2 class="title reveal-lines">
-        <span class="ln"><span>We don't just build.</span></span>
-        <span class="ln"><span>We <em>deliver.</em></span></span>
+        <span class="ln"><span>Details make</span></span>
+        <span class="ln"><span>the <em>design.</em></span></span>
       </h2>
       <div class="manifesto-copy">
         <p class="reveal-up">
           <strong>Construction is a promise.</strong>
-          Every slab poured, every joint sealed, every finish applied is a commitment to the people who will live with it for the next forty years. We treat it that way.
+          Every slab poured, every joint sealed, every finish applied is a commitment to the people who will live with it. We treat it exactly that way.
         </p>
         <p class="reveal-up">
           <strong>Architecture that ages gracefully.</strong>
-          We design for permanence, not fashion. The result is a body of work that feels inevitable — not trendy today and dated tomorrow.
+          We design for permanence, not fashion. Our goal is a building that feels inevitable — not trendy today and dated tomorrow.
         </p>
       </div>
     </div>
@@ -860,7 +870,7 @@ input,select,textarea{font:inherit;color:inherit}
           <span class="cap-no">03</span>
           <div class="cap-body">
             <h3><em>Deliver</em></h3>
-            <p>On the date promised, at the specification agreed. Then we stay for a year to make sure it holds — because a handover is the beginning, not the end.</p>
+            <p>On the date promised, at the specification agreed. We stay engaged after handover to ensure the building performs exactly as intended.</p>
           </div>
           <span class="cap-tag">Handover · Aftercare</span>
         </article>
@@ -962,7 +972,7 @@ input,select,textarea{font:inherit;color:inherit}
             <span class="process-no">04 Deliver</span>
             <div class="process-body">
               <h3>Hand over the keys.</h3>
-              <p>On the date promised, at the standard specified. Then we stay for a year to make sure it holds.</p>
+              <p>On the date promised, at the standard specified. We stay engaged after handover to make sure it holds.</p>
             </div>
           </div>
         </div>
@@ -1010,7 +1020,7 @@ input,select,textarea{font:inherit;color:inherit}
             <span class="ln"><span>Tell us what</span></span>
             <span class="ln"><span>you want to <em>build.</em></span></span>
           </h2>
-          <p class="contact-lede reveal-up">Whether it's a single apartment, a redevelopment, or an entire building standard — the first conversation is always the same: what does success look like?</p>
+          <p class="contact-lede reveal-up">Whether it's a single apartment, a redevelopment, or an entire building standard — the first conversation is always the same: what does success look like for you?</p>
           <div class="contact-meta">
             <a href="mailto:hello@arkonbuildtech.com">hello@arkonbuildtech.com</a>
             <a href="tel:+919000000000">+91 90000 00000</a>
@@ -1168,7 +1178,7 @@ input,select,textarea{font:inherit;color:inherit}
         </div>
         <div class="lux-info-col">
           <span class="lux-info-label">Follow</span>
-          <p style="color:rgba(244,243,236,.5);font-size:12px;line-height:1.8">For site visits, updates<br>and new launches —<br>follow along.</p>
+          <p style="color:rgba(244,248,251,.5);font-size:12px;line-height:1.8">For site visits, updates<br>and new launches —<br>follow along.</p>
         </div>
       </div>
     </div>
@@ -1254,7 +1264,8 @@ input,select,textarea{font:inherit;color:inherit}
 
     const chrome = Math.max(0, 1 - Math.max(0, (p - CHROME_START) / (1 - CHROME_START)));
 
-    shell.style.backgroundColor = 'rgba(18,18,20,' + (0.78 * chrome).toFixed(3) + ')';
+    // Updated to 0.45 for increased transparency
+    shell.style.backgroundColor = 'rgba(18,18,20,' + (0.45 * chrome).toFixed(3) + ')';
 
     const blur = 16 + 28 * (1 - chrome);
     const sat  = 130 + 50 * (1 - chrome);
