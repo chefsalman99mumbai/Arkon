@@ -47,7 +47,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:104px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:104px;overflow-x:hidden}
 body{font-family:var(--sans);background:var(--ivory);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -65,7 +65,7 @@ input,select,textarea{font:inherit;color:inherit}
 .body{font-size:clamp(14px,1.1vw,17px);line-height:1.9;color:var(--muted);max-width:580px}
 
 .ln{display:block;overflow:hidden;padding:.06em 0}
-.ln>span{display:inline-block;will-change:transform;transform-origin:bottom left}
+.ln>span{display:inline-block;will-change:transform, opacity;transform-origin:bottom left}
 
 /* ══════════════════════════════════════════════════════════════
    SCROLL PROGRESS + SCROLL-TO-TOP
@@ -336,14 +336,14 @@ input,select,textarea{font:inherit;color:inherit}
 @media (max-width:800px){.cap{grid-template-columns:1fr;gap:14px}.cap-tag{text-align:left;padding-top:0}}
 
 /* ══════════════════════════════════════════════════════════════
-   TYPOLOGIES (Now with local images)
+   TYPOLOGIES (Local Images)
    ══════════════════════════════════════════════════════════════ */
 .typologies{padding:clamp(100px,13vw,180px) 0;background:var(--ivory);position:relative}
 .typologies-inner{width:var(--wrap);margin:0 auto}
 .typologies-head{margin-bottom:clamp(56px,7vw,90px)}
 .typologies-head .title{max-width:720px;margin-top:20px}
 .typ-list{display:flex;flex-direction:column;gap:clamp(70px,10vw,140px)}
-.typ{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:end}
+.typ{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center}
 .typ:nth-child(even){direction:rtl}
 .typ:nth-child(even)>*{direction:ltr}
 .typ-img{
@@ -352,7 +352,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 .typ-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);will-change:transform}
 .typ:hover .typ-img img{transform:scale(1.04)}
-.typ-info{padding-bottom:clamp(20px,3vw,48px)}
+.typ-info{padding-block:clamp(20px,3vw,48px)}
 .typ-num{display:inline-flex;align-items:center;gap:12px;font:10px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--olive-dark);margin-bottom:26px}
 .typ-num::before{content:"";width:24px;height:1px;background:var(--gold)}
 .typ-name{font:400 clamp(2rem,4vw,3.8rem)/1 var(--serif);letter-spacing:-.035em;color:var(--ink);margin-bottom:22px}
@@ -384,7 +384,7 @@ input,select,textarea{font:inherit;color:inherit}
 .process .eyebrow::before{background:var(--gold)}
 .process .title{color:var(--ivory)}
 .process .title em{color:var(--gold-hi)}
-.process-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(40px,6vw,80px);align-items:start;margin-top:clamp(56px,7vw,80px)}
+.process-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(40px,6vw,80px);align-items:center;margin-top:clamp(56px,7vw,80px)}
 .process-list{border-top:1px solid rgba(242,240,235,.14)}
 .process-item{padding:32px 0;border-bottom:1px solid rgba(242,240,235,.14);display:block;transition:padding .5s var(--ease)}
 .process-item:hover{padding-left:14px}
@@ -410,6 +410,7 @@ input,select,textarea{font:inherit;color:inherit}
   position:relative;
   background:var(--ivory);
   transition:background .4s ease;
+  will-change: transform, opacity;
 }
 .standard:hover{background:#EBE9E2}
 .standard-value{font:400 clamp(1.4rem,2.2vw,2rem)/1.15 var(--serif);letter-spacing:-.02em;color:var(--ink)}
@@ -891,7 +892,7 @@ input,select,textarea{font:inherit;color:inherit}
           </h2>
           <p class="contact-lede reveal-up">Whether it's a single apartment, a redevelopment, or an entire building standard — the first conversation is always the same: what does success look like for you?</p>
           <div class="contact-meta">
-            <a href="mailto:arkonbuildtech@gmail.com">arkonbuildtech@gmail.com</a>
+            <a href="mailto:hello@arkonbuildtech.com">hello@arkonbuildtech.com</a>
             <a href="tel:+919000000000">+91 90000 00000</a>
           </div>
         </div>
@@ -973,7 +974,7 @@ input,select,textarea{font:inherit;color:inherit}
       </div>
       <div class="footer-col reveal-up">
         <h4>Contact</h4>
-        <a href="mailto:arkonbuildtech@gmail.com">arkonbuildtech@gmail.com</a>
+        <a href="mailto:hello@arkonbuildtech.com">hello@arkonbuildtech.com</a>
         <a href="tel:+919000000000">+91 90000 00000</a>
       </div>
       <div class="footer-col reveal-up">
@@ -1006,7 +1007,7 @@ input,select,textarea{font:inherit;color:inherit}
   <div class="wrap">
     <div class="footer-legal">
       <span>© 2026 Arkon Buildtech</span>
-      <span>Powered by Santinopole Media</span>
+      <span>Powered by Santinopole</span>
     </div>
   </div>
 </footer>
@@ -1223,7 +1224,7 @@ input,select,textarea{font:inherit;color:inherit}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-<!-- ═══════════ ANIMATIONS (No Glitches) ═══════════ -->
+<!-- ═══════════ AGGRESSIVE YET BUTTERY SMOOTH ANIMATIONS ═══════════ -->
 <script>
 (function () {
   'use strict';
@@ -1231,49 +1232,39 @@ input,select,textarea{font:inherit;color:inherit}
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
 
-  // Prevent Flash of unstyled content for animated elements
-  gsap.set('.hero-title .ln > span, .reveal-lines .ln > span', { willChange: 'transform' });
+  // Force GPU acceleration for smoother scrolling
+  gsap.config({ force3D: true });
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   /* ---------- HERO ---------- */
   const heroLines = document.querySelectorAll('.hero-title .ln > span');
   if (heroLines.length) {
     gsap.set(heroLines, {transformOrigin: 'bottom left'});
     gsap.from(heroLines, {
-      yPercent: 130,
-      rotate: 6,
-      skewY: 4,
-      duration: 1.6,
-      stagger: 0.16,
-      ease: 'power4.out',
-      delay: 0.2
+      yPercent: 100,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.12,
+      ease: 'power3.out',
+      delay: 0.1,
+      clearProps: "all"
     });
   }
-  gsap.from('.hero-eyebrow', {y: 24, opacity: 0, duration: 1, delay: 0.1, ease: 'power3.out'});
-  gsap.from('.hero-sub', {y: 32, opacity: 0, duration: 1.2, delay: 0.85, ease: 'power3.out'});
-  gsap.from('.hero-meta span', {
-    y: 24, opacity: 0, duration: 0.9, delay: 1,
-    stagger: 0.12, ease: 'power3.out'
+  gsap.from('.hero-eyebrow', {y: 20, opacity: 0, duration: 0.8, delay: 0.1, ease: 'power2.out', clearProps: "all"});
+  gsap.from('.hero-sub, .hero-meta span', {
+    y: 20, opacity: 0, duration: 0.8, delay: 0.6,
+    stagger: 0.1, ease: 'power2.out', clearProps: "all"
   });
+  
   gsap.to('.hero-img', {
-    yPercent: 22,
-    scale: 1.12,
+    yPercent: 15,
+    scale: 1.1,
     ease: 'none',
     scrollTrigger: {
       trigger: '.hero',
       start: 'top top',
       end: 'bottom top',
-      scrub: 0.6
-    }
-  });
-  gsap.to('.hero-inner', {
-    yPercent: -8,
-    opacity: 0.4,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 0.6
+      scrub: 0.5
     }
   });
 
@@ -1283,62 +1274,66 @@ input,select,textarea{font:inherit;color:inherit}
     if (!lines.length) return;
     gsap.set(lines, {transformOrigin: 'bottom left'});
     gsap.from(lines, {
-      yPercent: 130,
-      rotate: 4,
-      skewY: 3,
-      duration: 1.4,
-      stagger: 0.13,
-      ease: 'power4.out',
-      scrollTrigger: { trigger: el, start: 'top 82%' }
+      yPercent: 100,
+      opacity: 0,
+      duration: 1.1,
+      stagger: 0.1,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      clearProps: "all"
     });
   });
 
   /* ---------- REVEAL UPS ---------- */
   gsap.utils.toArray('.reveal-up').forEach(function (el) {
     gsap.from(el, {
-      y: 50,
+      y: 30,
       opacity: 0,
-      duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 88%' }
+      duration: 0.9,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true },
+      clearProps: "all"
     });
   });
 
   /* ---------- EYEBROWS ---------- */
   gsap.utils.toArray('.eyebrow').forEach(function (el) {
     gsap.from(el, {
-      x: -30,
+      x: -20,
       opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 90%' }
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true },
+      clearProps: "all"
     });
   });
 
   /* ---------- CAPABILITIES ---------- */
   gsap.utils.toArray('.cap').forEach(function (cap, i) {
     gsap.from(cap, {
-      y: 60,
+      y: 40,
       opacity: 0,
-      duration: 1.1,
-      delay: i * 0.08,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: cap, start: 'top 90%' }
+      duration: 0.9,
+      delay: i * 0.05,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: cap, start: 'top 92%', once: true },
+      clearProps: "all"
     });
     const tag = cap.querySelector('.cap-tag');
     if (tag) {
       gsap.from(tag, {
-        x: 30,
+        x: 20,
         opacity: 0,
-        duration: 0.9,
-        delay: 0.3 + i * 0.08,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: cap, start: 'top 90%' }
+        duration: 0.8,
+        delay: 0.2 + i * 0.05,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: cap, start: 'top 92%', once: true },
+        clearProps: "all"
       });
     }
   });
 
-  /* ---------- TYPOLOGIES (Local Images) ---------- */
+  /* ---------- TYPOLOGIES ---------- */
   gsap.utils.toArray('.typ').forEach(function (typ) {
     const img = typ.querySelector('.typ-img');
     const info = typ.querySelector('.typ-info');
@@ -1347,46 +1342,49 @@ input,select,textarea{font:inherit;color:inherit}
         { clipPath: 'inset(0 0 100% 0)' },
         {
           clipPath: 'inset(0 0 0% 0)',
-          duration: 1.6,
-          ease: 'power4.inOut',
-          scrollTrigger: { trigger: img, start: 'top 88%', once: true }
+          duration: 1.3,
+          ease: 'power3.inOut',
+          scrollTrigger: { trigger: img, start: 'top 88%', once: true },
+          clearProps: "all"
         }
       );
       const inner = img.querySelector('img');
       if (inner) {
         gsap.fromTo(inner,
-          { scale: 1.25, rotate: 1.5 },
+          { scale: 1.15 },
           {
             scale: 1,
-            rotate: 0,
-            duration: 1.8,
+            duration: 1.4,
             ease: 'power2.out',
-            scrollTrigger: { trigger: img, start: 'top 88%', once: true }
+            scrollTrigger: { trigger: img, start: 'top 88%', once: true },
+            clearProps: "all"
           }
         );
       }
     }
     if (info) {
       gsap.from(info.children, {
-        y: 40,
+        y: 30,
         opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: info, start: 'top 88%' }
+        duration: 0.9,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: info, start: 'top 92%', once: true },
+        clearProps: "all"
       });
     }
   });
 
+  // Parallax for typology images
   gsap.utils.toArray('.typ-img img').forEach(function (img) {
-    gsap.fromTo(img, { yPercent: -5 }, {
-      yPercent: 5,
+    gsap.fromTo(img, { yPercent: -4 }, {
+      yPercent: 4,
       ease: 'none',
       scrollTrigger: {
         trigger: img.closest('.typ'),
         start: 'top bottom',
         end: 'bottom top',
-        scrub: 0.7
+        scrub: 0.5
       }
     });
   });
@@ -1394,56 +1392,61 @@ input,select,textarea{font:inherit;color:inherit}
   /* ---------- PROCESS ---------- */
   gsap.utils.toArray('.process-item').forEach(function (item, i) {
     gsap.from(item, {
-      x: -40,
+      x: -30,
       opacity: 0,
-      duration: 1,
-      delay: i * 0.06,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: item, start: 'top 90%' }
+      duration: 0.9,
+      delay: i * 0.05,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: item, start: 'top 92%', once: true },
+      clearProps: "all"
     });
     const no = item.querySelector('.process-no');
     if (no) {
       gsap.from(no, {
-        scale: 0.5,
+        scale: 0.8,
         opacity: 0,
-        duration: 0.8,
-        delay: 0.2 + i * 0.06,
-        ease: 'back.out(2)',
-        scrollTrigger: { trigger: item, start: 'top 90%' }
+        duration: 0.7,
+        delay: 0.15 + i * 0.05,
+        ease: 'back.out(1.5)',
+        scrollTrigger: { trigger: item, start: 'top 92%', once: true },
+        clearProps: "all"
       });
     }
   });
 
-  /* ---------- OUR PROMISE ---------- */
+  /* ---------- OUR PROMISE (Fixed) ---------- */
   gsap.utils.toArray('.standard').forEach(function (std, i) {
     gsap.from(std, {
-      y: 50,
+      y: 30,
       opacity: 0,
-      rotationX: -12,
-      transformOrigin: 'top center',
-      duration: 1.2,
-      delay: i * 0.12,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: '.standards-grid', start: 'top 85%' }
+      duration: 0.9,
+      delay: i * 0.1,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.standards-grid', start: 'top 92%', once: true },
+      clearProps: "all"
     });
   });
 
   /* ---------- CONTACT ---------- */
   gsap.from('.contact-lede', {
-    y: 40, opacity: 0, duration: 1.1, ease: 'power3.out',
-    scrollTrigger: { trigger: '.contact', start: 'top 75%' }
+    y: 30, opacity: 0, duration: 0.9, ease: 'power2.out',
+    scrollTrigger: { trigger: '.contact', start: 'top 80%', once: true },
+    clearProps: "all"
   });
   gsap.from('.contact-meta a', {
-    y: 30, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out',
-    scrollTrigger: { trigger: '.contact-meta', start: 'top 90%' }
+    y: 20, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power2.out',
+    scrollTrigger: { trigger: '.contact-meta', start: 'top 92%', once: true },
+    clearProps: "all"
   });
   gsap.from('.enquiry-form', {
-    x: 60, opacity: 0, duration: 1.3, ease: 'power3.out',
-    scrollTrigger: { trigger: '.enquiry-form', start: 'top 85%' }
+    x: 30, opacity: 0, duration: 1, ease: 'power2.out',
+    scrollTrigger: { trigger: '.enquiry-form', start: 'top 90%', once: true },
+    clearProps: "all"
   });
   gsap.from('.enquiry-form .field', {
-    y: 25, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out',
-    scrollTrigger: { trigger: '.enquiry-form', start: 'top 80%' }
+    y: 20, opacity: 0, duration: 0.7, stagger: 0.05, ease: 'power2.out',
+    scrollTrigger: { trigger: '.enquiry-form', start: 'top 85%', once: true },
+    clearProps: "all"
   });
 
   /* ---------- FOOTER ---------- */
@@ -1451,48 +1454,48 @@ input,select,textarea{font:inherit;color:inherit}
   if (footerLines.length) {
     gsap.set(footerLines, {transformOrigin: 'bottom left'});
     gsap.from(footerLines, {
-      yPercent: 140,
-      rotate: 5,
-      skewY: 3,
-      duration: 1.5,
-      stagger: 0.15,
-      ease: 'power4.out',
-      scrollTrigger: { trigger: '.footer-big-text', start: 'top 88%' }
+      yPercent: 100,
+      opacity: 0,
+      duration: 1.1,
+      stagger: 0.1,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: '.footer-big-text', start: 'top 92%', once: true },
+      clearProps: "all"
     });
   }
   gsap.from('.footer-cta-circle', {
-    scale: 0.6,
+    scale: 0.8,
     opacity: 0,
-    rotation: -30,
-    duration: 1.4,
-    ease: 'power4.out',
-    scrollTrigger: { trigger: '.footer-cta-circle', start: 'top 90%' }
+    duration: 1,
+    ease: 'power2.out',
+    scrollTrigger: { trigger: '.footer-cta-circle', start: 'top 92%', once: true },
+    clearProps: "all"
   });
   gsap.utils.toArray('.footer-bottom-grid .footer-col').forEach(function (col, i) {
     gsap.from(col, {
-      y: 40,
+      y: 20,
       opacity: 0,
-      duration: 0.9,
-      delay: i * 0.1,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: col, start: 'top 95%' }
+      duration: 0.8,
+      delay: i * 0.05,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: col, start: 'top 95%', once: true },
+      clearProps: "all"
     });
   });
   gsap.to('.footer-watermark', {
-    yPercent: -20,
-    scale: 1.05,
+    yPercent: -15,
     ease: 'none',
     scrollTrigger: {
       trigger: '.eye-catch-footer',
       start: 'top bottom',
       end: 'bottom top',
-      scrub: 0.8
+      scrub: 0.5
     }
   });
 
   /* ---------- PARALLAX MARQUEE ---------- */
   gsap.to('.marquee-track', {
-    xPercent: -8,
+    xPercent: -5,
     ease: 'none',
     scrollTrigger: {
       trigger: '.marquee',
@@ -1509,18 +1512,18 @@ input,select,textarea{font:inherit;color:inherit}
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
       gsap.to(el, {
-        x: x * 0.22,
-        y: y * 0.22,
-        duration: 0.5,
-        ease: 'power3.out'
+        x: x * 0.2,
+        y: y * 0.2,
+        duration: 0.4,
+        ease: 'power2.out'
       });
     });
     el.addEventListener('mouseleave', function () {
       gsap.to(el, {
         x: 0,
         y: 0,
-        duration: 1,
-        ease: 'elastic.out(1, 0.35)'
+        duration: 0.8,
+        ease: 'elastic.out(1, 0.4)'
       });
     });
   });
@@ -1533,8 +1536,8 @@ input,select,textarea{font:inherit;color:inherit}
     const observer = new MutationObserver(function () {
       if (exploreWrap.classList.contains('open')) {
         gsap.fromTo(links,
-          { y: 12, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: 'power3.out', delay: 0.08 }
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power2.out', delay: 0.05, clearProps: "all" }
         );
       }
     });
@@ -1576,7 +1579,7 @@ input,select,textarea{font:inherit;color:inherit}
       const status = document.getElementById('formStatus');
       if (status) status.classList.add('on');
 
-      window.location.href = 'mailto:arkonbuildtech@gmail.com?subject=' +
+      window.location.href = 'mailto:hello@arkonbuildtech.com?subject=' +
         encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   }
