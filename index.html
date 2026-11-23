@@ -463,6 +463,7 @@ input,select,textarea{font:inherit;color:inherit}
   margin: 0 auto;
   overflow: hidden;
   border-radius: 2px;
+  background: linear-gradient(160deg, #1A3A28 0%, #0F2B1C 100%);
   box-shadow: 0 30px 60px rgba(0,0,0,.4);
 }
 .mag-image-wrap::after {
@@ -1046,8 +1047,9 @@ input,select,textarea{font:inherit;color:inherit}
         <div class="mag-visual reveal-up">
           
           <div class="mag-image-wrap">
-            <!-- Upload your founder photo as OWNER.JPG in the same folder as this HTML file -->
-            <img src="OWNER.JPG" alt="Azhar M Patel - Founder of Arkon Buildtech" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1000&q=80&auto=format&fit=crop'">
+            <!-- Upload your founder photo as OWNER.JPG in the same folder as this HTML file.
+                 Until then, this area stays intentionally vacant (no fallback image). -->
+            <img src="OWNER.JPG" alt="Azhar M Patel - Founder of Arkon Buildtech" onerror="this.style.display='none'">
             
             <!-- Magazine caption — anchored to the bottom of the portrait -->
             <div class="mag-overlap-text">
