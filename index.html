@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="UTF-8">
@@ -842,7 +843,7 @@ input,select,textarea{font:inherit;color:inherit}
 </style>
 </head>
 <body>
-
+   
 <!-- Scroll progress -->
 <div class="scroll-progress-bar" id="scrollBar"></div>
 
@@ -1000,7 +1001,7 @@ input,select,textarea{font:inherit;color:inherit}
             </div>
           </div>
         </article>
-        
+
         <!-- Image 02 -->
         <article class="typ reveal-up">
           <div class="typ-img">
@@ -1016,7 +1017,7 @@ input,select,textarea{font:inherit;color:inherit}
             </div>
           </div>
         </article>
-        
+
         <!-- Image 03 -->
         <article class="typ reveal-up">
           <div class="typ-img">
@@ -1039,17 +1040,16 @@ input,select,textarea{font:inherit;color:inherit}
   <!-- MAGAZINE FOUNDER SECTION -->
   <section class="magazine-founder" id="founder">
     <div class="mag-wrap">
-      
+
       <div class="mag-grid">
-        
+
         <!-- Image & Overlapping Text -->
         <div class="mag-visual reveal-up">
-          
+
           <div class="mag-image-wrap">
-            <!-- Upload your founder photo as OWNER.JPG in the same folder as this HTML file.
-                 Until then, this area stays intentionally vacant (no fallback image). -->
+            <!-- Upload your founder photo as OWNER.JPG in the same folder as this HTML file. -->
             <img src="OWNER.JPG" alt="Azhar M Patel - Founder of Arkon Buildtech" onerror="this.style.display='none'">
-            
+
             <!-- Magazine caption — anchored to the bottom of the portrait -->
             <div class="mag-overlap-text">
               <span class="mag-overlap-kicker">/ Founder</span>
@@ -1067,15 +1067,15 @@ input,select,textarea{font:inherit;color:inherit}
             <span class="ln"><span>A Legacy of</span></span>
             <span class="ln"><span><em>Absolute Precision.</em></span></span>
           </h3>
-          
+
           <p class="mag-body reveal-up">
             While Arkon Buildtech is a newly forged standard in Mumbai's real estate landscape, its foundation is built on over a decade of industry experience by <strong>Azhar M Patel</strong>. A heavyweight in the construction and redevelopment sector, Azhar brings a legacy of unmatched structural acumen and business integrity to every project.
           </p>
-          
+
           <div class="mag-quote reveal-up">
             "We don't just build structures. We craft the spaces where life's most important moments unfold."
           </div>
-          
+
           <p class="mag-body reveal-up">
             Our philosophy is simple and uncompromising: every structure must outlive the trends of today, standing as a testament to architectural grace, absolute transparency, and structural integrity.
           </p>
@@ -1228,8 +1228,20 @@ input,select,textarea{font:inherit;color:inherit}
 
 <!-- LUXURY FOOTER -->
 <footer class="lux-footer">
+
+  <!-- ═══════════ NEW: FOOTER SHRINK STRIP ═══════════ -->
+  <div class="footer-strip" id="footerStrip" aria-hidden="true">
+    <a class="footer-strip-brand" href="#top" aria-label="Arkon Buildtech home">
+      <img class="footer-strip-logo" src="logo.png" alt="Arkon Buildtech">
+      <span class="footer-strip-name">Arkon Buildtech</span>
+    </a>
+    <span class="footer-strip-line"></span>
+    <span class="footer-strip-meta">Mumbai · India</span>
+  </div>
+  <!-- ═══════════ END FOOTER SHRINK STRIP ═══════════ -->
+
   <div class="lux-footer-inner">
-    
+
     <div class="lux-ticker reveal-up">
       <div class="lux-ticker-left">
         <div class="lux-dot"></div>
@@ -1287,9 +1299,9 @@ input,select,textarea{font:inherit;color:inherit}
       </div>
     </div>
   </div>
-  
-  <div class="lux-footer-inner">
-    <div class="lux-legal reveal-up">
+
+  <div class="lux-footer-inner" style="padding-top:0">
+    <div class="lux-legal">
       <span>© 2026 Arkon Buildtech</span>
       <span>Powered by Santinopole Media</span>
     </div>
@@ -1504,16 +1516,54 @@ input,select,textarea{font:inherit;color:inherit}
 })();
 </script>
 
+<!-- ═══════════ NEW: FOOTER SHRINK STRIP SCRIPT ═══════════ -->
+<script>
+(function () {
+  'use strict';
+  const strip = document.getElementById('footerStrip');
+  if (!strip) return;
+
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const doc = document.documentElement;
+    const scrolled = window.scrollY + window.innerHeight;
+    const total = doc.scrollHeight;
+    // Open when within 260px of the absolute bottom
+    const nearBottom = (total - scrolled) < 260;
+    if (nearBottom) {
+      strip.classList.add('is-open');
+      strip.setAttribute('aria-hidden', 'false');
+    } else {
+      strip.classList.remove('is-open');
+      strip.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+
 <!-- ═══════════ GSAP + SCROLLTRIGGER ═══════════ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-<!-- ═══════════ BULLETPROOF REVEAL SCRIPT (NO VACANT SECTIONS) ═══════════ -->
+<!-- ═══════════ BULLETPROOF REVEAL SCRIPT ═══════════ -->
 <script>
 (function () {
   'use strict';
 
-  // 1. Intersection Observer for all CSS-based reveals
   const observerOptions = {
     root: null,
     rootMargin: '0px 0px -50px 0px',
@@ -1532,7 +1582,6 @@ input,select,textarea{font:inherit;color:inherit}
   const revealElements = document.querySelectorAll('.reveal-up, .reveal-lines, .typ');
   revealElements.forEach(el => observer.observe(el));
 
-  // 2. GSAP for smooth parallax and magnetic buttons only (NO opacity hidden states)
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
     gsap.config({ force3D: true });
@@ -1540,7 +1589,6 @@ input,select,textarea{font:inherit;color:inherit}
 
     let mm = gsap.matchMedia();
 
-    // Desktop Parallax
     mm.add("(min-width: 769px)", () => {
       gsap.to('.hero-img', {
         yPercent: 15, scale: 1.1, ease: 'none',
@@ -1554,7 +1602,6 @@ input,select,textarea{font:inherit;color:inherit}
       });
     });
 
-    // Magnetic Buttons
     document.querySelectorAll('.magnetic').forEach(function (el) {
       el.addEventListener('mousemove', function (e) {
         const rect = el.getBoundingClientRect();
@@ -1567,7 +1614,6 @@ input,select,textarea{font:inherit;color:inherit}
       });
     });
 
-    // Explore Panel Links Animation
     const exploreWrap = document.getElementById('exploreWrap');
     const explorePanel = document.getElementById('explorePanel');
     if (exploreWrap && explorePanel) {
@@ -1583,7 +1629,6 @@ input,select,textarea{font:inherit;color:inherit}
       mutObs.observe(exploreWrap, { attributes: true, attributeFilter: ['class'] });
     }
 
-    // Refresh ScrollTrigger on load and resize to fix layout shifts
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
     }
