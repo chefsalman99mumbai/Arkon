@@ -174,43 +174,6 @@ input,select,textarea{font:inherit;color:inherit}
 .brand.has-image .brand-wordmark{display:none}
 .brand.has-image .brand-image{display:block}
 
-/* ══════════════════════════════════════════════════════════════
-   BULLETPROOF CENTER TAGLINE (MASSIVE FONTS)
-   ══════════════════════════════════════════════════════════════ */
-.nav-center-wrap {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 1;
-}
-.nav-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-  opacity: 1;
-}
-.nav-center-text {
-  display: inline-flex;
-  align-items: center;
-  font: 600 12px var(--mono);
-  letter-spacing: .35em;
-  text-transform: uppercase;
-  color: rgba(242,240,235,.9);
-  white-space: nowrap;
-}
-.nav-center-text em {
-  font: italic 400 28px var(--serif);
-  letter-spacing: .05em;
-  text-transform: none;
-  color: var(--gold-hi);
-  margin: 0 16px;
-  text-shadow: 0 0 20px rgba(201,169,110,.5);
-}
-
 .nav-right{
   position:absolute;right:32px;top:50%;transform:translateY(-50%);
   display:flex;align-items:center;gap:14px;
@@ -221,13 +184,6 @@ input,select,textarea{font:inherit;color:inherit}
 .nav-right>*{flex-shrink:0}
 .nav-meta{font:10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(242,240,235,.62)}
 
-@media (max-width:1200px){
-  .nav-center-text { font-size: 10px; letter-spacing: .25em; }
-  .nav-center-text em { font-size: 22px; margin: 0 10px; }
-}
-@media (max-width:950px){
-  .nav-center-wrap { display: none; } /* Hide center text before it overlaps */
-}
 @media (max-width:900px){
   .topbar{padding:10px 14px 0}
   .nav-shell{height:72px;padding:0 22px}
@@ -922,13 +878,6 @@ input,select,textarea{font:inherit;color:inherit}
       </span>
       <img class="brand-image" id="brandImage" src="logo.png" alt="Arkon Buildtech">
     </a>
-    
-    <!-- BULLETPROOF CENTER TAGLINE (MASSIVE) -->
-    <div class="nav-center-wrap">
-      <div class="nav-center" id="navCenter" aria-hidden="true">
-        <span class="nav-center-text">WHERE VISION <em>Meets</em> REALITY</span>
-      </div>
-    </div>
 
     <div class="nav-right" id="navRight">
       <span class="nav-meta">Mumbai · India</span>
@@ -1390,7 +1339,6 @@ input,select,textarea{font:inherit;color:inherit}
   const shell       = document.getElementById('navShell');
   const brand       = document.getElementById('brandLogo');
   const navRight    = document.getElementById('navRight');
-  const navCenter   = document.getElementById('navCenter');
   const navMetaEl   = document.querySelector('.nav-meta');
   const brandWordEl = document.querySelector('.brand-word');
 
@@ -1459,7 +1407,6 @@ input,select,textarea{font:inherit;color:inherit}
     const nr = Math.max(0, 1 - eased * 1.35);
     navRight.style.opacity  = nr.toFixed(3);
     navRight.style.maxWidth = (600 * nr).toFixed(0) + 'px';
-    if (navCenter) navCenter.style.opacity = nr.toFixed(3);
   }
 
   function animate() {
