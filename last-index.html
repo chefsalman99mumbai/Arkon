@@ -1,13 +1,12 @@
-<!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0F2B1C">
 <meta name="description" content="Arkon Buildtech — considered construction, thoughtful redevelopment, and enduring architecture in Mumbai.">
-<meta property="og:title" content="Arkon Buildtech | Built for a Brighter Tomorrow">
+<meta property="og:title" content="Arkon Buildtech |Where Vision Meets Reality">
 <meta property="og:type" content="website">
-<title>Arkon Buildtech | Built for a Brighter Tomorrow</title>
+<title>Arkon Buildtech |Where Vision Meets Reality</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -463,6 +462,7 @@ input,select,textarea{font:inherit;color:inherit}
   margin: 0 auto;
   overflow: hidden;
   border-radius: 2px;
+  background: linear-gradient(160deg, #1A3A28 0%, #0F2B1C 100%);
   box-shadow: 0 30px 60px rgba(0,0,0,.4);
 }
 .mag-image-wrap::after {
@@ -483,25 +483,56 @@ input,select,textarea{font:inherit;color:inherit}
   transform: scale(1.05);
 }
 
-/* The Overlapping Posh Text - Strictly over the image */
+/* Magazine caption — bottom-anchored editorial overlay */
 .mag-overlap-text {
   position: absolute;
-  top: 10%;
-  left: 8%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: auto;
   z-index: 10;
   pointer-events: none;
+  padding: clamp(80px, 10vw, 130px) clamp(24px, 3.5vw, 46px) clamp(28px, 4vw, 46px);
+  background: linear-gradient(
+    to top,
+    rgba(15,43,28,.96) 0%,
+    rgba(15,43,28,.82) 28%,
+    rgba(15,43,28,.4)  62%,
+    transparent        100%
+  );
+}
+.mag-overlap-kicker {
+  display: block;
+  font: 500 10px var(--mono);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: clamp(14px, 1.8vw, 22px);
+  opacity: .92;
 }
 .mag-overlap-text h2 {
-  font: 400 clamp(3.5rem, 7vw, 6.5rem)/.9 var(--serif);
-  letter-spacing: -.05em;
+  font: 400 clamp(2.4rem, 5vw, 4.4rem)/.92 var(--serif);
+  letter-spacing: -.045em;
   color: var(--ivory);
-  text-shadow: 0 10px 40px rgba(15,43,28,1), 0 4px 10px rgba(15,43,28,.8);
+  margin: 0;
+  position: relative;
+  padding-top: clamp(22px, 2.6vw, 32px);
+  text-shadow: 0 2px 24px rgba(15,43,28,.55);
+}
+.mag-overlap-text h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(44px, 5vw, 72px);
+  height: 1px;
+  background: var(--foil);
 }
 .mag-overlap-text h2 em {
   font-style: italic;
   color: var(--gold);
   display: block;
-  padding-left: 15%;
+  padding-left: clamp(20px, 3vw, 44px);
 }
 
 /* Right Side: Editorial Content */
@@ -1015,11 +1046,13 @@ input,select,textarea{font:inherit;color:inherit}
         <div class="mag-visual reveal-up">
           
           <div class="mag-image-wrap">
-            <!-- OWNER.JPG loaded here -->
-            <img src="OWNER.JPG" alt="Azhar M Patel - Founder of Arkon Buildtech" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1000&q=80&auto=format&fit=crop'">
+            <!-- Upload your founder photo as OWNER.JPG in the same folder as this HTML file.
+                 Until then, this area stays intentionally vacant (no fallback image). -->
+            <img src="OWNER.JPG" alt="Azhar M Patel - Founder of Arkon Buildtech" onerror="this.style.display='none'">
             
-            <!-- Text now entirely inside the image container, top-left -->
+            <!-- Magazine caption — anchored to the bottom of the portrait -->
             <div class="mag-overlap-text">
+              <span class="mag-overlap-kicker">/ Founder</span>
               <h2 class="reveal-lines">
                 <span class="ln"><span>THE</span></span>
                 <span class="ln"><span><em>VISIONARY</em></span></span>
@@ -1036,7 +1069,7 @@ input,select,textarea{font:inherit;color:inherit}
           </h3>
           
           <p class="mag-body reveal-up">
-            While Arkon Buildtech is a newly forged standard in Mumbai's real estate landscape, its foundation is built on over a decade of industry dominance by <strong>Azhar M Patel</strong>. A heavyweight in the construction and redevelopment sector, Azhar brings a legacy of unmatched structural acumen and business integrity to every project.
+            While Arkon Buildtech is a newly forged standard in Mumbai's real estate landscape, its foundation is built on over a decade of industry experience by <strong>Azhar M Patel</strong>. A heavyweight in the construction and redevelopment sector, Azhar brings a legacy of unmatched structural acumen and business integrity to every project.
           </p>
           
           <div class="mag-quote reveal-up">
@@ -1044,7 +1077,7 @@ input,select,textarea{font:inherit;color:inherit}
           </div>
           
           <p class="mag-body reveal-up">
-            His philosophy is simple and uncompromising: every structure must outlive the trends of today, standing as a testament to architectural grace, absolute transparency, and structural integrity.
+            Our philosophy is simple and uncompromising: every structure must outlive the trends of today, standing as a testament to architectural grace, absolute transparency, and structural integrity.
           </p>
 
           <div class="mag-signature reveal-up">
