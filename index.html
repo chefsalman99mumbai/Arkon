@@ -1,4 +1,3 @@
-```html
 <html lang="en-IN">
 <head>
 <meta charset="UTF-8">
@@ -960,7 +959,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 
 /* ══════════════════════════════════════════════════════════════
-   PROJECTS MODAL
+   PROJECTS MODAL  (compact — all 3 chapters visible, no scroll)
    ══════════════════════════════════════════════════════════════ */
 .projects-modal{
   position:fixed;inset:0;z-index:100;
@@ -978,13 +977,13 @@ input,select,textarea{font:inherit;color:inherit}
 .projects-modal-content{
   position:relative;
   z-index:1;
-  width:100%;max-width:1000px;
-  max-height:90vh;
+  width:100%;max-width:860px;
+  max-height:88vh;
   overflow-y:auto;
   overscroll-behavior:contain;
   background:var(--earth-bg);
   border:1px solid rgba(201,169,110,.3);
-  padding:clamp(40px,6vw,80px) clamp(28px,5vw,72px);
+  padding:clamp(30px,4vw,52px) clamp(24px,4vw,48px);
   transform:translateY(30px) scale(.98);
   transition:transform .6s var(--ease);
   box-shadow:0 40px 100px rgba(0,0,0,.5);
@@ -998,8 +997,8 @@ input,select,textarea{font:inherit;color:inherit}
   background-size:88px 88px;pointer-events:none;
 }
 .projects-modal-close{
-  position:absolute;top:20px;right:20px;
-  width:44px;height:44px;
+  position:absolute;top:16px;right:16px;
+  width:40px;height:40px;
   display:grid;place-items:center;
   border:1px solid rgba(201,169,110,.35);
   border-radius:50%;
@@ -1013,19 +1012,19 @@ input,select,textarea{font:inherit;color:inherit}
   background:var(--gold);color:var(--earth-bg);
   border-color:var(--gold);transform:rotate(90deg);
 }
-.projects-modal-close svg{width:18px;height:18px;display:block}
-.projects-modal-header{position:relative;margin-bottom:clamp(40px,5vw,60px)}
-.projects-modal-header .eyebrow{color:var(--gold);margin-bottom:20px}
+.projects-modal-close svg{width:16px;height:16px;display:block}
+.projects-modal-header{position:relative;margin-bottom:clamp(22px,2.8vw,34px)}
+.projects-modal-header .eyebrow{color:var(--gold);margin-bottom:14px}
 .projects-modal-header .eyebrow::before{background:var(--gold)}
 .projects-modal-header h2{
-  font:400 clamp(2.4rem,5vw,4.4rem)/1 var(--serif);
+  font:400 clamp(1.9rem,3.8vw,3rem)/1 var(--serif);
   letter-spacing:-.04em;color:var(--ivory);
 }
 .projects-modal-header h2 em{font-style:italic;color:var(--gold)}
 .projects-modal-header p{
-  font-size:15px;line-height:1.7;
+  font-size:14px;line-height:1.65;
   color:rgba(242,240,235,.65);
-  margin-top:20px;max-width:520px;
+  margin-top:14px;max-width:460px;
 }
 .projects-modal-list{
   position:relative;
@@ -1035,9 +1034,9 @@ input,select,textarea{font:inherit;color:inherit}
 .projects-modal-item{
   display:grid;
   grid-template-columns:auto 1fr auto;
-  gap:clamp(20px,4vw,48px);
+  gap:clamp(16px,3vw,36px);
   align-items:center;
-  padding:clamp(24px,3.5vw,40px) 0;
+  padding:clamp(16px,2.4vw,26px) 0;
   border-bottom:1px solid rgba(201,169,110,.2);
   color:var(--ivory);
   text-decoration:none;
@@ -1050,29 +1049,29 @@ input,select,textarea{font:inherit;color:inherit}
   transition:width .5s var(--ease);
   pointer-events:none;
 }
-.projects-modal-item:hover{padding-left:24px}
+.projects-modal-item:hover{padding-left:20px}
 .projects-modal-item:hover::before{width:100%}
 .projects-modal-item > *{position:relative;z-index:1}
 .pmi-num{
-  font:400 clamp(1.4rem,2.2vw,2rem)/1 var(--serif);
+  font:400 clamp(1.1rem,1.8vw,1.5rem)/1 var(--serif);
   color:rgba(201,169,110,.5);
   letter-spacing:-.02em;
   transition:color .4s ease;
 }
 .projects-modal-item:hover .pmi-num{color:var(--gold)}
 .pmi-content h3{
-  font:400 clamp(1.6rem,3vw,2.6rem)/1.1 var(--serif);
+  font:400 clamp(1.3rem,2.3vw,1.9rem)/1.1 var(--serif);
   letter-spacing:-.025em;
-  margin-bottom:8px;
+  margin-bottom:5px;
   transition:color .4s ease;
 }
 .projects-modal-item:hover .pmi-content h3{color:var(--gold)}
 .pmi-content p{
-  font-size:14px;line-height:1.6;
+  font-size:13px;line-height:1.55;
   color:rgba(242,240,235,.55);
 }
 .pmi-arrow{
-  font-size:28px;
+  font-size:22px;
   color:rgba(201,169,110,.5);
   transition:transform .4s var(--ease),color .4s ease;
 }
@@ -1082,7 +1081,7 @@ input,select,textarea{font:inherit;color:inherit}
 }
 
 @media (max-width:560px){
-  .projects-modal-item{grid-template-columns:auto 1fr;gap:16px}
+  .projects-modal-item{grid-template-columns:auto 1fr;gap:14px}
   .pmi-arrow{display:none}
 }
 
@@ -2229,79 +2228,73 @@ At Arkon Buildtech, we specialise in residential projects, creating homes where 
         const y = target.getBoundingClientRect().top + window.scrollY - 90;
         try { window.scrollTo({ top: y, behavior: 'smooth' }); }
         catch (err) { window.scrollTo(0, y); }
-      }, 300);
+      }, 280);
     });
   });
 })();
 </script>
 
-<!-- ═══════════ ONGOING PROGRESS BARS ═══════════ -->
+<!-- ═══════════ REVEAL ANIMATIONS SCRIPT ═══════════ -->
 <script>
 (function () {
   'use strict';
 
-  const bars = document.querySelectorAll('.ongoing-progress-fill');
-  if (!bars.length) return;
+  var revealEls = Array.prototype.slice.call(
+    document.querySelectorAll('.reveal-up, .reveal-lines, .reveal-img, .typ')
+  );
 
-  const obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        var pct = entry.target.getAttribute('data-pct') || '0';
-        setTimeout(function () {
-          entry.target.style.width = pct + '%';
-        }, 200);
-        obs.unobserve(entry.target);
-      }
+  function activate(el) {
+    el.classList.add('is-visible');
+    var fills = el.querySelectorAll ? el.querySelectorAll('.ongoing-progress-fill') : [];
+    Array.prototype.forEach.call(fills, function (f) {
+      var pct = parseFloat(f.getAttribute('data-pct')) || 0;
+      f.style.width = pct + '%';
     });
-  }, { threshold: 0.4, rootMargin: '0px 0px -40px 0px' });
+  }
 
-  bars.forEach(function (bar) { obs.observe(bar); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          activate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(activate);
+  }
 })();
 </script>
 
-<!-- ═══════════ FOOTER CLOCK + SCROLL BAR + BACK TO TOP ═══════════ -->
+<!-- ═══════════ SCROLL PROGRESS + BACK TO TOP ═══════════ -->
 <script>
 (function () {
   'use strict';
 
-  const clock = document.getElementById('footerClock');
-  if (clock) {
-    function tick() {
-      const now = new Date();
-      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-      const ist = new Date(utc + (5.5 * 3600000));
-      const hh  = String(ist.getHours()).padStart(2, '0');
-      const mm  = String(ist.getMinutes()).padStart(2, '0');
-      const ss  = String(ist.getSeconds()).padStart(2, '0');
-      clock.textContent = hh + ':' + mm + ':' + ss;
-    }
-    tick();
-    setInterval(tick, 1000);
+  var bar   = document.getElementById('scrollBar');
+  var toTop = document.getElementById('scrollToTop');
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - window.innerHeight;
+    var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    if (bar) bar.style.width = pct.toFixed(2) + '%';
+    if (toTop) toTop.classList.toggle('visible', window.scrollY > 640);
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
   }
 
-  const scrollBar = document.getElementById('scrollBar');
-  if (scrollBar) {
-    function updateBar() {
-      const max = document.body.scrollHeight - window.innerHeight;
-      const p = max > 0 ? (window.scrollY / max) * 100 : 0;
-      scrollBar.style.width = p.toFixed(2) + '%';
-    }
-    window.addEventListener('scroll', updateBar, {passive:true});
-    window.addEventListener('resize', updateBar);
-    updateBar();
-  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 
-  const topBtn = document.getElementById('scrollToTop');
-  if (topBtn) {
-    function checkTop() {
-      if (window.scrollY > window.innerHeight * 0.7) {
-        topBtn.classList.add('visible');
-      } else {
-        topBtn.classList.remove('visible');
-      }
-    }
-    window.addEventListener('scroll', checkTop, {passive:true});
-    topBtn.addEventListener('click', function () {
+  if (toTop) {
+    toTop.addEventListener('click', function () {
       try { window.scrollTo({ top: 0, behavior: 'smooth' }); }
       catch (err) { window.scrollTo(0, 0); }
     });
@@ -2309,129 +2302,113 @@ At Arkon Buildtech, we specialise in residential projects, creating homes where 
 })();
 </script>
 
-<!-- ═══════════ GSAP + SCROLLTRIGGER ═══════════ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<!-- ═══════════ BULLETPROOF REVEAL SCRIPT ═══════════ -->
+<!-- ═══════════ HERO PARALLAX · CLOCK · FORM · MAGNETIC ═══════════ -->
 <script>
 (function () {
   'use strict';
 
-  // 1. Intersection Observer for all CSS-based reveals
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
-  };
+  var reduceMotion = window.matchMedia &&
+                     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+  // Hero parallax
+  var heroImg = document.querySelector('.hero-img');
+  var parallaxTicking = false;
 
-  const revealElements = document.querySelectorAll('.reveal-up, .reveal-lines, .typ');
-  revealElements.forEach(el => observer.observe(el));
-
-  // 2. GSAP for smooth parallax, magnetic buttons, and UI logic
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.config({ force3D: true });
-    ScrollTrigger.config({ ignoreMobileResize: true });
-
-    let mm = gsap.matchMedia();
-
-    // Desktop Parallax
-    mm.add("(min-width: 769px)", () => {
-      gsap.to('.hero-img', {
-        yPercent: 15, scale: 1.1, ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.5 }
-      });
-      gsap.utils.toArray('.typ-img img').forEach(function (img) {
-        gsap.fromTo(img, { yPercent: -4 }, {
-          yPercent: 4, ease: 'none',
-          scrollTrigger: { trigger: img.closest('.typ'), start: 'top bottom', end: 'bottom top', scrub: 0.5 }
-        });
-      });
-    });
-
-    // Magnetic Buttons
-    document.querySelectorAll('.magnetic').forEach(function (el) {
-      el.addEventListener('mousemove', function (e) {
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        gsap.to(el, { x: x * 0.2, y: y * 0.2, duration: 0.4, ease: 'power2.out' });
-      });
-      el.addEventListener('mouseleave', function () {
-        gsap.to(el, { x: 0, y: 0, duration: 0.8, ease: 'elastic.out(1, 0.4)' });
-      });
-    });
-
-    // Explore Panel Links Animation
-    const exploreWrap = document.getElementById('exploreWrap');
-    const explorePanel = document.getElementById('explorePanel');
-    if (exploreWrap && explorePanel) {
-      const links = explorePanel.querySelectorAll('.explore-link');
-      const mutObs = new MutationObserver(function () {
-        if (exploreWrap.classList.contains('open')) {
-          gsap.fromTo(links,
-            { y: 10, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.4, stagger: 0.05, ease: 'power2.out', delay: 0.05 }
-          );
-        }
-      });
-      mutObs.observe(exploreWrap, { attributes: true, attributeFilter: ['class'] });
+  function parallax() {
+    parallaxTicking = false;
+    if (!heroImg) return;
+    var y = window.scrollY;
+    if (y < window.innerHeight * 1.2) {
+      heroImg.style.transform = 'translateY(' + (y * 0.1).toFixed(1) + 'px)';
     }
-
-    // Refresh ScrollTrigger on load and resize to fix layout shifts
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
-    }
-    window.addEventListener('load', function () { ScrollTrigger.refresh(); });
   }
 
-  /* ---------- FORM ---------- */
-  const form = document.getElementById('enquiryForm');
+  if (heroImg && !reduceMotion) {
+    window.addEventListener('scroll', function () {
+      if (!parallaxTicking) {
+        parallaxTicking = true;
+        window.requestAnimationFrame(parallax);
+      }
+    }, { passive: true });
+  }
+
+  // Footer clock (IST)
+  var clock = document.getElementById('footerClock');
+
+  function tick() {
+    if (!clock) return;
+    try {
+      var fmt = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Kolkata', hour12: false,
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      clock.textContent = fmt.format(new Date());
+    } catch (e) {
+      var d = new Date();
+      clock.textContent =
+        ('0' + d.getHours()).slice(-2) + ':' +
+        ('0' + d.getMinutes()).slice(-2) + ':' +
+        ('0' + d.getSeconds()).slice(-2);
+    }
+  }
+
+  if (clock) { tick(); setInterval(tick, 1000); }
+
+  // Enquiry form → mailto
+  var form   = document.getElementById('enquiryForm');
+  var status = document.getElementById('formStatus');
+
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const name    = form.Name.value.trim();
-      const phone   = form.Phone.value.trim();
-      const email   = form.Email.value.trim();
-      const type    = form['Project type'].value;
-      const message = form.Message.value.trim();
 
-      if (!name || !phone || !email || !type) {
-        alert('Please fill in your name, phone, email and project type.');
+      var name  = (document.getElementById('fName')    || {}).value || '';
+      var phone = (document.getElementById('fPhone')   || {}).value || '';
+      var email = (document.getElementById('fEmail')   || {}).value || '';
+      var type  = (document.getElementById('fProject') || {}).value || '';
+      var msg   = (document.getElementById('fMessage') || {}).value || '';
+
+      if (!name.trim() || !phone.trim() || !email.trim() || !type) {
+        if (status) {
+          status.textContent = 'Please complete the required fields.';
+          status.classList.add('on');
+        }
         return;
       }
 
-      const subject = 'Project enquiry — ' + type + (name ? ' — ' + name : '');
-      const body = [
-        'Name: ' + name,
-        'Phone: ' + phone,
-        'Email: ' + email,
-        'Project type: ' + type,
-        '',
-        'About the project:',
-        (message || '—')
-      ].join('\n');
+      if (status) {
+        status.textContent = 'Thank you — opening your mail client…';
+        status.classList.add('on');
+      }
 
-      const status = document.getElementById('formStatus');
-      if (status) status.classList.add('on');
-
-      window.location.href = 'mailto:arkonbuildtech@gmail.com?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      var subject = encodeURIComponent('Project enquiry — ' + type);
+      var body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Email: ' + email + '\n' +
+        'Project type: ' + type + '\n\n' + msg
+      );
+      window.location.href =
+        'mailto:arkonbuildtech@gmail.com?subject=' + subject + '&body=' + body;
     });
   }
+
+  // Subtle magnetic buttons
+  var magnets = document.querySelectorAll('.magnetic');
+  Array.prototype.forEach.call(magnets, function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var r = btn.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width / 2;
+      var y = e.clientY - r.top - r.height / 2;
+      btn.style.transform =
+        'translate(' + (x * 0.1).toFixed(1) + 'px,' + (y * 0.16 - 2).toFixed(1) + 'px)';
+    });
+    btn.addEventListener('mouseleave', function () {
+      btn.style.transform = '';
+    });
+  });
 })();
 </script>
 
 </body>
 </html>
-```
