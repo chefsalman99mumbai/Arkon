@@ -1,3 +1,4 @@
+```html
 <html lang="en-IN">
 <head>
 <meta charset="UTF-8">
@@ -265,6 +266,7 @@ input,select,textarea{font:inherit;color:inherit}
   position:relative;
   transition:color .3s ease,padding-left .4s var(--ease);
   overflow:hidden;
+  cursor:pointer;
 }
 .explore-link::before{
   content:"";position:absolute;left:0;top:0;bottom:0;width:0;
@@ -621,6 +623,470 @@ input,select,textarea{font:inherit;color:inherit}
 }
 
 /* ══════════════════════════════════════════════════════════════
+   PROJECTS — SHARED
+   ══════════════════════════════════════════════════════════════ */
+.projects-inner{width:var(--wrap);margin:0 auto;position:relative;z-index:2}
+.projects-head{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px;
+  align-items:end;
+  margin-bottom:clamp(56px,7vw,90px);
+}
+.projects-head .title{max-width:720px;margin-top:20px}
+.projects-count{
+  font:400 clamp(3rem,6vw,5rem)/1 var(--serif);
+  color:var(--terracotta);
+  letter-spacing:-.04em;
+  text-align:right;
+  flex-shrink:0;
+}
+.projects-count small{
+  display:block;
+  font:500 10px var(--mono);
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-top:12px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   COMPLETED PROJECTS
+   ══════════════════════════════════════════════════════════════ */
+.projects-completed{
+  padding:clamp(100px,13vw,180px) 0;
+  background:var(--beige);
+  position:relative;
+  overflow:hidden;
+}
+.projects-completed::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:var(--foil);opacity:.4;
+}
+.projects-completed::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(28,46,36,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(28,46,36,.03) 1px,transparent 1px);
+  background-size:88px 88px;pointer-events:none;
+}
+.completed-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:clamp(24px,3vw,40px);
+}
+.completed-card{
+  position:relative;
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+.completed-img{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:linear-gradient(160deg,#D4D0C8 0%,#C4C0B8 100%);
+  margin-bottom:24px;
+}
+.completed-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 1.2s var(--ease);
+  will-change:transform;
+}
+.completed-card:hover .completed-img img{transform:scale(1.05)}
+.completed-img::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(15,43,28,.45) 0%,transparent 50%);
+  opacity:0;transition:opacity .5s ease;
+  pointer-events:none;
+}
+.completed-card:hover .completed-img::after{opacity:1}
+.completed-badge{
+  position:absolute;top:20px;left:20px;
+  padding:8px 16px;
+  background:rgba(15,43,28,.9);
+  color:var(--gold-hi);
+  font:500 9px var(--mono);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  z-index:2;
+}
+.completed-info{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:24px;
+  padding-bottom:20px;
+  border-bottom:1px solid rgba(28,46,36,.15);
+}
+.completed-name{
+  font:400 clamp(1.6rem,2.4vw,2.2rem)/1.1 var(--serif);
+  letter-spacing:-.025em;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.completed-name em{font-style:italic;color:var(--terracotta)}
+.completed-meta{
+  font:500 10px var(--mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.completed-year{
+  font:400 clamp(1.8rem,3vw,2.6rem)/1 var(--serif);
+  color:var(--terracotta);
+  letter-spacing:-.03em;
+  flex-shrink:0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ONGOING PROJECTS
+   ══════════════════════════════════════════════════════════════ */
+.projects-ongoing{
+  padding:clamp(100px,13vw,180px) 0;
+  background:var(--earth-bg);
+  color:var(--ivory);
+  position:relative;
+  overflow:hidden;
+}
+.projects-ongoing::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(201,169,110,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,169,110,.04) 1px,transparent 1px);
+  background-size:88px 88px;pointer-events:none;
+}
+.projects-ongoing .eyebrow{color:var(--gold)}
+.projects-ongoing .eyebrow::before{background:var(--gold)}
+.projects-ongoing .title{color:var(--ivory)}
+.projects-ongoing .title em{color:var(--gold)}
+.projects-ongoing .projects-count{color:var(--gold)}
+.projects-ongoing .projects-count small{color:rgba(242,240,235,.55)}
+
+.ongoing-list{
+  display:flex;flex-direction:column;
+  border-top:1px solid rgba(201,169,110,.18);
+}
+.ongoing-item{
+  display:grid;
+  grid-template-columns:200px 1fr auto;
+  gap:clamp(24px,4vw,60px);
+  align-items:center;
+  padding:clamp(28px,4vw,40px) 0;
+  border-bottom:1px solid rgba(201,169,110,.18);
+  transition:padding-left .5s var(--ease);
+}
+.ongoing-item:hover{padding-left:12px}
+.ongoing-thumb{
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:linear-gradient(160deg,#1A3A28 0%,#0F2B1C 100%);
+  flex-shrink:0;
+}
+.ongoing-thumb img{
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:grayscale(15%) contrast(1.05);
+  transition:filter .5s ease,transform 1.2s var(--ease);
+}
+.ongoing-item:hover .ongoing-thumb img{
+  filter:grayscale(0) contrast(1.05);
+  transform:scale(1.04);
+}
+.ongoing-body h3{
+  font:400 clamp(1.5rem,2.4vw,2.2rem)/1.1 var(--serif);
+  letter-spacing:-.025em;
+  color:var(--ivory);
+  margin-bottom:10px;
+}
+.ongoing-body h3 em{font-style:italic;color:var(--gold)}
+.ongoing-body .loc{
+  font:500 10px var(--mono);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(242,240,235,.6);
+  margin-bottom:20px;
+}
+.ongoing-progress{
+  height:2px;
+  background:rgba(201,169,110,.15);
+  position:relative;
+  overflow:hidden;
+  max-width:380px;
+}
+.ongoing-progress-fill{
+  position:absolute;
+  inset:0 auto 0 0;
+  width:0;
+  background:var(--foil);
+  transition:width 1.8s var(--ease);
+}
+.ongoing-status{
+  text-align:right;
+  flex-shrink:0;
+}
+.ongoing-pct{
+  font:400 clamp(2rem,3.5vw,3rem)/1 var(--serif);
+  color:var(--gold);
+  letter-spacing:-.03em;
+}
+.ongoing-pct small{
+  font-size:.4em;
+  color:rgba(201,169,110,.7);
+  margin-left:4px;
+  font-family:var(--mono);
+  letter-spacing:.1em;
+}
+.ongoing-stage{
+  font:500 9px var(--mono);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(242,240,235,.55);
+  margin-top:8px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FUTURE PROJECTS
+   ══════════════════════════════════════════════════════════════ */
+.projects-future{
+  padding:clamp(100px,13vw,180px) 0;
+  background:var(--ivory);
+  position:relative;
+  overflow:hidden;
+}
+.projects-future::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(28,46,36,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(28,46,36,.03) 1px,transparent 1px);
+  background-size:88px 88px;pointer-events:none;
+}
+.projects-future .title em{color:var(--terracotta)}
+.future-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(20px,2.5vw,32px);
+}
+.future-card{
+  position:relative;
+  padding:clamp(32px,4vw,48px) clamp(24px,3vw,36px);
+  background:var(--ivory);
+  border:1px dashed rgba(28,46,36,.22);
+  display:flex;flex-direction:column;
+  gap:16px;
+  min-height:320px;
+  transition:border-color .4s ease,background .4s ease,transform .4s var(--ease);
+}
+.future-card:hover{
+  border-color:var(--terracotta);
+  background:rgba(27,122,77,.04);
+  transform:translateY(-4px);
+}
+.future-card::before{
+  content:"";position:absolute;top:-1px;left:-1px;
+  width:16px;height:16px;
+  border-top:2px solid var(--terracotta);
+  border-left:2px solid var(--terracotta);
+  opacity:0;transition:opacity .4s ease;
+  pointer-events:none;
+}
+.future-card:hover::before{opacity:1}
+.future-card::after{
+  content:"";position:absolute;bottom:-1px;right:-1px;
+  width:16px;height:16px;
+  border-bottom:2px solid var(--terracotta);
+  border-right:2px solid var(--terracotta);
+  opacity:0;transition:opacity .4s ease;
+  pointer-events:none;
+}
+.future-card:hover::after{opacity:1}
+.future-num{
+  font:400 clamp(2rem,3vw,2.6rem)/1 var(--serif);
+  color:var(--terracotta);
+  letter-spacing:-.03em;
+  opacity:.7;
+}
+.future-status{
+  display:inline-flex;align-items:center;gap:8px;
+  font:500 9px var(--mono);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--terracotta);
+  margin-bottom:auto;
+}
+.future-status::before{
+  content:"";width:6px;height:6px;
+  background:var(--terracotta);
+  border-radius:50%;
+  animation:futurePulse 2s infinite;
+}
+@keyframes futurePulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.35;transform:scale(.85)}
+}
+.future-name{
+  font:400 clamp(1.4rem,2vw,1.8rem)/1.15 var(--serif);
+  letter-spacing:-.02em;
+  color:var(--ink);
+  margin-top:auto;
+}
+.future-name em{font-style:italic;color:var(--terracotta)}
+.future-meta{
+  display:flex;justify-content:space-between;gap:16px;
+  padding-top:20px;
+  border-top:1px solid rgba(28,46,36,.15);
+  font:500 9px var(--mono);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.future-meta span:last-child{color:var(--ink)}
+
+/* ══════════════════════════════════════════════════════════════
+   PROJECTS SECTIONS — RESPONSIVE
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width:900px){
+  .completed-grid{grid-template-columns:1fr}
+  .ongoing-item{grid-template-columns:120px 1fr}
+  .ongoing-status{grid-column:1 / -1;text-align:left;margin-top:8px}
+  .future-grid{grid-template-columns:1fr}
+  .projects-head{grid-template-columns:1fr}
+  .projects-count{text-align:left;margin-top:8px}
+}
+@media (max-width:560px){
+  .ongoing-item{grid-template-columns:1fr}
+  .ongoing-thumb{aspect-ratio:16/9}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PROJECTS MODAL
+   ══════════════════════════════════════════════════════════════ */
+.projects-modal{
+  position:fixed;inset:0;z-index:100;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;visibility:hidden;
+  transition:opacity .5s var(--ease),visibility .5s;
+}
+.projects-modal.open{opacity:1;visibility:visible}
+.projects-modal-backdrop{
+  position:absolute;inset:0;
+  background:rgba(15,43,28,.72);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+}
+.projects-modal-content{
+  position:relative;
+  z-index:1;
+  width:100%;max-width:1000px;
+  max-height:90vh;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  background:var(--earth-bg);
+  border:1px solid rgba(201,169,110,.3);
+  padding:clamp(40px,6vw,80px) clamp(28px,5vw,72px);
+  transform:translateY(30px) scale(.98);
+  transition:transform .6s var(--ease);
+  box-shadow:0 40px 100px rgba(0,0,0,.5);
+}
+.projects-modal.open .projects-modal-content{transform:translateY(0) scale(1)}
+.projects-modal-content::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(201,169,110,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,169,110,.04) 1px,transparent 1px);
+  background-size:88px 88px;pointer-events:none;
+}
+.projects-modal-close{
+  position:absolute;top:20px;right:20px;
+  width:44px;height:44px;
+  display:grid;place-items:center;
+  border:1px solid rgba(201,169,110,.35);
+  border-radius:50%;
+  color:var(--gold-hi);
+  background:transparent;
+  cursor:pointer;
+  transition:all .3s ease;
+  z-index:2;
+}
+.projects-modal-close:hover{
+  background:var(--gold);color:var(--earth-bg);
+  border-color:var(--gold);transform:rotate(90deg);
+}
+.projects-modal-close svg{width:18px;height:18px;display:block}
+.projects-modal-header{position:relative;margin-bottom:clamp(40px,5vw,60px)}
+.projects-modal-header .eyebrow{color:var(--gold);margin-bottom:20px}
+.projects-modal-header .eyebrow::before{background:var(--gold)}
+.projects-modal-header h2{
+  font:400 clamp(2.4rem,5vw,4.4rem)/1 var(--serif);
+  letter-spacing:-.04em;color:var(--ivory);
+}
+.projects-modal-header h2 em{font-style:italic;color:var(--gold)}
+.projects-modal-header p{
+  font-size:15px;line-height:1.7;
+  color:rgba(242,240,235,.65);
+  margin-top:20px;max-width:520px;
+}
+.projects-modal-list{
+  position:relative;
+  display:flex;flex-direction:column;
+  border-top:1px solid rgba(201,169,110,.2);
+}
+.projects-modal-item{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:clamp(20px,4vw,48px);
+  align-items:center;
+  padding:clamp(24px,3.5vw,40px) 0;
+  border-bottom:1px solid rgba(201,169,110,.2);
+  color:var(--ivory);
+  text-decoration:none;
+  transition:padding-left .5s var(--ease);
+  position:relative;
+}
+.projects-modal-item::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:0;
+  background:linear-gradient(90deg,rgba(201,169,110,.15),transparent);
+  transition:width .5s var(--ease);
+  pointer-events:none;
+}
+.projects-modal-item:hover{padding-left:24px}
+.projects-modal-item:hover::before{width:100%}
+.projects-modal-item > *{position:relative;z-index:1}
+.pmi-num{
+  font:400 clamp(1.4rem,2.2vw,2rem)/1 var(--serif);
+  color:rgba(201,169,110,.5);
+  letter-spacing:-.02em;
+  transition:color .4s ease;
+}
+.projects-modal-item:hover .pmi-num{color:var(--gold)}
+.pmi-content h3{
+  font:400 clamp(1.6rem,3vw,2.6rem)/1.1 var(--serif);
+  letter-spacing:-.025em;
+  margin-bottom:8px;
+  transition:color .4s ease;
+}
+.projects-modal-item:hover .pmi-content h3{color:var(--gold)}
+.pmi-content p{
+  font-size:14px;line-height:1.6;
+  color:rgba(242,240,235,.55);
+}
+.pmi-arrow{
+  font-size:28px;
+  color:rgba(201,169,110,.5);
+  transition:transform .4s var(--ease),color .4s ease;
+}
+.projects-modal-item:hover .pmi-arrow{
+  color:var(--gold);
+  transform:translateX(8px);
+}
+
+@media (max-width:560px){
+  .projects-modal-item{grid-template-columns:auto 1fr;gap:16px}
+  .pmi-arrow{display:none}
+}
+
+/* ══════════════════════════════════════════════════════════════
    PROCESS
    ══════════════════════════════════════════════════════════════ */
 .process{padding:clamp(100px,13vw,180px) 0;background:var(--ivory);color:var(--ink);position:relative;overflow:hidden}
@@ -859,6 +1325,8 @@ input,select,textarea{font:inherit;color:inherit}
   .marquee-track{animation:none}
   .typ-img img,.submit-btn{transition:none}
   .lux-dot{animation:none}
+  .future-status::before{animation:none}
+  .ongoing-progress-fill{transition:none !important}
   .reveal-up, .reveal-lines .ln > span, .reveal-img, .typ-img { transition: none !important; opacity: 1 !important; transform: none !important; clip-path: none !important; }
 }
 </style>
@@ -890,7 +1358,7 @@ input,select,textarea{font:inherit;color:inherit}
           <a class="explore-link" href="#who" data-target="who">Philosophy</a>
           <a class="explore-link" href="#typologies" data-target="typologies">Typologies</a>
           <a class="explore-link" href="#founder" data-target="founder">Founder</a>
-          <a class="explore-link" href="#process" data-target="process">Process</a>
+          <a class="explore-link" href="#projects" data-action="projects-modal">Projects</a>
           <a class="explore-link" href="#contact" data-target="contact">Contact</a>
         </nav>
       </div>
@@ -1127,6 +1595,153 @@ At Arkon Buildtech, we specialise in residential projects, creating homes where 
     </div>
   </section>
 
+  <!-- ═══════════ COMPLETED PROJECTS ═══════════ -->
+  <section class="projects-completed" id="completed-projects">
+    <div class="projects-inner">
+      <div class="projects-head">
+        <div>
+          <div class="eyebrow reveal-up">Portfolio · Delivered</div>
+          <h2 class="title reveal-lines">
+            <span class="ln"><span>Built. Delivered.</span></span>
+            <span class="ln"><span>Lived <em>in.</em></span></span>
+          </h2>
+        </div>
+        <div class="projects-count reveal-up">
+          I<small>Chapter · Delivered</small>
+        </div>
+      </div>
+      <div class="completed-grid">
+        <!-- Upload project images as COMPLETED-01.JPG / COMPLETED-02.JPG -->
+        <a href="#contact" class="completed-card reveal-up">
+          <div class="completed-img">
+            <span class="completed-badge">Completed · 2023</span>
+            <img src="COMPLETED-01.JPG" alt="The Meridian — Bandra West" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="completed-info">
+            <div>
+              <h3 class="completed-name">The <em>Meridian</em></h3>
+              <div class="completed-meta">Bandra West · Ground-up · 24 Residences</div>
+            </div>
+            <div class="completed-year">'23</div>
+          </div>
+        </a>
+        <a href="#contact" class="completed-card reveal-up">
+          <div class="completed-img">
+            <span class="completed-badge">Completed · 2022</span>
+            <img src="COMPLETED-02.JPG" alt="Palm Grove Residences — Thane" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="completed-info">
+            <div>
+              <h3 class="completed-name">Palm <em>Grove</em></h3>
+              <div class="completed-meta">Thane West · Redevelopment · 40 Units</div>
+            </div>
+            <div class="completed-year">'22</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ONGOING PROJECTS ═══════════ -->
+  <section class="projects-ongoing" id="ongoing-projects">
+    <div class="projects-inner">
+      <div class="projects-head">
+        <div>
+          <div class="eyebrow reveal-up">Portfolio · In Motion</div>
+          <h2 class="title reveal-lines">
+            <span class="ln"><span>Rising</span></span>
+            <span class="ln"><span>right <em>now.</em></span></span>
+          </h2>
+        </div>
+        <div class="projects-count reveal-up">
+          II<small>Chapter · In Motion</small>
+        </div>
+      </div>
+      <div class="ongoing-list">
+        <!-- Upload project images as ONGOING-01.JPG / ONGOING-02.JPG -->
+        <div class="ongoing-item reveal-up">
+          <div class="ongoing-thumb">
+            <img src="ONGOING-01.JPG" alt="Arkon Vista — Andheri East" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="ongoing-body">
+            <h3>Arkon <em>Vista</em></h3>
+            <div class="loc">Andheri East · Ground-up · 32 Residences</div>
+            <div class="ongoing-progress">
+              <div class="ongoing-progress-fill" data-pct="65"></div>
+            </div>
+          </div>
+          <div class="ongoing-status">
+            <div class="ongoing-pct">65<small>%</small></div>
+            <div class="ongoing-stage">Slab casting · Q4 2026</div>
+          </div>
+        </div>
+        <div class="ongoing-item reveal-up">
+          <div class="ongoing-thumb">
+            <img src="ONGOING-02.JPG" alt="Skyline Residences — Mulund" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="ongoing-body">
+            <h3>Skyline <em>Residences</em></h3>
+            <div class="loc">Mulund West · Redevelopment · 48 Units</div>
+            <div class="ongoing-progress">
+              <div class="ongoing-progress-fill" data-pct="30"></div>
+            </div>
+          </div>
+          <div class="ongoing-status">
+            <div class="ongoing-pct">30<small>%</small></div>
+            <div class="ongoing-stage">Foundation · Q2 2027</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FUTURE PROJECTS ═══════════ -->
+  <section class="projects-future" id="future-projects">
+    <div class="projects-inner">
+      <div class="projects-head">
+        <div>
+          <div class="eyebrow reveal-up">Portfolio · In Vision</div>
+          <h2 class="title reveal-lines">
+            <span class="ln"><span>What's</span></span>
+            <span class="ln"><span>coming <em>next.</em></span></span>
+          </h2>
+        </div>
+        <div class="projects-count reveal-up">
+          III<small>Chapter · In Vision</small>
+        </div>
+      </div>
+      <div class="future-grid">
+        <div class="future-card reveal-up">
+          <div class="future-num">01</div>
+          <div class="future-status">In Planning</div>
+          <div class="future-name">The <em>Grove</em></div>
+          <div class="future-meta">
+            <span>Powai · Mumbai</span>
+            <span>2027</span>
+          </div>
+        </div>
+        <div class="future-card reveal-up">
+          <div class="future-num">02</div>
+          <div class="future-status">In Design</div>
+          <div class="future-name">Arkon <em>One</em></div>
+          <div class="future-meta">
+            <span>Lower Parel · Mumbai</span>
+            <span>2028</span>
+          </div>
+        </div>
+        <div class="future-card reveal-up">
+          <div class="future-num">03</div>
+          <div class="future-status">Concept</div>
+          <div class="future-name">Marine <em>Vista</em></div>
+          <div class="future-meta">
+            <span>Worli · Mumbai</span>
+            <span>2028</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section class="process" id="process">
     <div class="process-inner">
@@ -1343,6 +1958,49 @@ At Arkon Buildtech, we specialise in residential projects, creating homes where 
   </svg>
 </button>
 
+<!-- ═══════════ PROJECTS MODAL ═══════════ -->
+<div class="projects-modal" id="projectsModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Projects navigation">
+  <div class="projects-modal-backdrop" data-close-modal></div>
+  <div class="projects-modal-content">
+    <button class="projects-modal-close" id="projectsModalClose" aria-label="Close projects menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M6 6l12 12M6 18L18 6"/>
+      </svg>
+    </button>
+    <div class="projects-modal-header">
+      <span class="eyebrow">Portfolio</span>
+      <h2>Three chapters.<br>One <em>standard.</em></h2>
+      <p>Explore our work across every stage — what we've delivered, what's rising now, and what's on the horizon.</p>
+    </div>
+    <div class="projects-modal-list">
+      <a href="#completed-projects" class="projects-modal-item" data-target="completed-projects">
+        <span class="pmi-num">01</span>
+        <div class="pmi-content">
+          <h3>Completed Projects</h3>
+          <p>Homes delivered. Legacies begun.</p>
+        </div>
+        <span class="pmi-arrow">→</span>
+      </a>
+      <a href="#ongoing-projects" class="projects-modal-item" data-target="ongoing-projects">
+        <span class="pmi-num">02</span>
+        <div class="pmi-content">
+          <h3>Ongoing Projects</h3>
+          <p>What's rising on site right now.</p>
+        </div>
+        <span class="pmi-arrow">→</span>
+      </a>
+      <a href="#future-projects" class="projects-modal-item" data-target="future-projects">
+        <span class="pmi-num">03</span>
+        <div class="pmi-content">
+          <h3>Future Projects</h3>
+          <p>The next chapter, already in motion.</p>
+        </div>
+        <span class="pmi-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════════ F1 NAVBAR SCRIPT ═══════════ -->
 <script>
 (function () {
@@ -1482,15 +2140,122 @@ At Arkon Buildtech, we specialise in residential projects, creating homes where 
   panel.querySelectorAll('.explore-link').forEach(function (link) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
-      const id = link.getAttribute('data-target');
+      const action = link.getAttribute('data-action');
+      const id     = link.getAttribute('data-target');
+
+      closeMenu();
+
+      if (action === 'projects-modal') {
+        if (typeof window.openProjectsModal === 'function') {
+          window.openProjectsModal();
+        }
+        return;
+      }
+
+      if (!id) return;
       const target = document.getElementById(id);
       if (!target) return;
-      closeMenu();
       const y = target.getBoundingClientRect().top + window.scrollY - 90;
       try { window.scrollTo({ top: y, behavior: 'smooth' }); }
       catch (err) { window.scrollTo(0, y); }
     });
   });
+})();
+</script>
+
+<!-- ═══════════ PROJECTS MODAL SCRIPT ═══════════ -->
+<script>
+(function () {
+  'use strict';
+
+  const modal    = document.getElementById('projectsModal');
+  const closeBtn = document.getElementById('projectsModalClose');
+  if (!modal || !closeBtn) return;
+
+  let lastFocused = null;
+
+  function openModal() {
+    lastFocused = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { closeBtn.focus(); }, 120);
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    }
+  }
+
+  window.openProjectsModal = openModal;
+
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.querySelectorAll('[data-close-modal]').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  // Focus trap
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    const focusable = modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  });
+
+  // Navigate from modal to section
+  modal.querySelectorAll('.projects-modal-item').forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = item.getAttribute('data-target');
+      const target   = document.getElementById(targetId);
+      closeModal();
+      if (!target) return;
+      setTimeout(function () {
+        const y = target.getBoundingClientRect().top + window.scrollY - 90;
+        try { window.scrollTo({ top: y, behavior: 'smooth' }); }
+        catch (err) { window.scrollTo(0, y); }
+      }, 300);
+    });
+  });
+})();
+</script>
+
+<!-- ═══════════ ONGOING PROGRESS BARS ═══════════ -->
+<script>
+(function () {
+  'use strict';
+
+  const bars = document.querySelectorAll('.ongoing-progress-fill');
+  if (!bars.length) return;
+
+  const obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var pct = entry.target.getAttribute('data-pct') || '0';
+        setTimeout(function () {
+          entry.target.style.width = pct + '%';
+        }, 200);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4, rootMargin: '0px 0px -40px 0px' });
+
+  bars.forEach(function (bar) { obs.observe(bar); });
 })();
 </script>
 
@@ -1669,3 +2434,4 @@ At Arkon Buildtech, we specialise in residential projects, creating homes where 
 
 </body>
 </html>
+```
