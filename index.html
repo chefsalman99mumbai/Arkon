@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en-IN">
 <head>
 <meta charset="UTF-8">
@@ -1303,10 +1304,59 @@ input,select,textarea{font:inherit;color:inherit}
   .footer-logo-container { padding: 40px 0 20px; }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   LEGAL / COPYRIGHT STRIP  —  enhanced
+   ══════════════════════════════════════════════════════════════ */
 .lux-legal{
-  display:flex;justify-content:space-between;padding:32px 0;
-  font:10px var(--mono);letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(255,255,255,.35);border-top:1px solid rgba(255,255,255,.08);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:34px 0;
+  font:10px var(--mono);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+  border-top:1px solid rgba(255,255,255,.08);
+  gap:20px;
+  flex-wrap:wrap;
+}
+.lux-legal-copy{
+  display:inline-flex;align-items:center;gap:12px;
+}
+.lux-copy-mark{
+  display:inline-grid;place-items:center;
+  width:24px;height:24px;
+  border:1px solid rgba(201,169,110,.5);
+  border-radius:50%;
+  color:var(--gold);
+  font-family:var(--serif);
+  font-size:13px;
+  line-height:1;
+  letter-spacing:0;
+  text-transform:none;
+  flex-shrink:0;
+  box-shadow:0 0 16px rgba(201,169,110,.12);
+}
+.lux-credit{
+  display:inline-flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,.42);
+}
+.lux-credit-name{
+  color:var(--gold-hi);
+  font-weight:500;
+  position:relative;
+  display:inline-block;
+}
+.lux-credit-name::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:-5px;
+  width:100%;height:1px;
+  background:var(--foil);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .5s var(--ease);
+}
+.lux-legal:hover .lux-credit-name::after{
+  transform:scaleX(1);
 }
 
 @media (max-width:900px){
@@ -1944,8 +1994,14 @@ At Arkon Buildtech, we specialise in residential projects, creating homes where 
 
   <div class="lux-footer-inner">
     <div class="lux-legal reveal-up">
-      <span>© 2026 Arkon Buildtech</span>
-      <span>Powered by Santinopole Media</span>
+      <span class="lux-legal-copy">
+        <span class="lux-copy-mark" aria-hidden="true">©</span>
+        <span>2026 Arkon Buildtech</span>
+      </span>
+      <span class="lux-credit">
+        <span>Powered by</span>
+        <span class="lux-credit-name">Santinopole Media</span>
+      </span>
     </div>
   </div>
 </footer>
@@ -2245,167 +2301,113 @@ At Arkon Buildtech, we specialise in residential projects, creating homes where 
 
   function activate(el) {
     el.classList.add('is-visible');
-    var fills = el.querySelectorAll ? el.querySelectorAll('.ongoing-progress-fill') : [];
-    Array.prototype.forEach.call(fills, function (f) {
-      var pct = parseFloat(f.getAttribute('data-pct')) || 0;
-      f.style.width = pct + '%';
-    });
+    var fills = el.querySelectorAll('.ongoing-progress-fill');
+    if (fills.length) {
+      setTimeout(function () {
+        fills.forEach(function (fill) {
+          fill.style.width = (fill.getAttribute('data-pct') || '0') + '%';
+        });
+      }, 250);
+    }
   }
 
   if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
+    var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           activate(entry.target);
-          io.unobserve(entry.target);
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+    revealEls.forEach(function (el) { observer.observe(el); });
   } else {
     revealEls.forEach(activate);
   }
 })();
 </script>
 
-<!-- ═══════════ SCROLL PROGRESS + BACK TO TOP ═══════════ -->
+<!-- ═══════════ SCROLL PROGRESS + BACK TO TOP SCRIPT ═══════════ -->
 <script>
 (function () {
   'use strict';
+  var bar = document.getElementById('scrollBar');
+  var btn = document.getElementById('scrollToTop');
 
-  var bar   = document.getElementById('scrollBar');
-  var toTop = document.getElementById('scrollToTop');
-  var ticking = false;
-
-  function update() {
-    ticking = false;
-    var doc = document.documentElement;
-    var max = doc.scrollHeight - window.innerHeight;
-    var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
-    if (bar) bar.style.width = pct.toFixed(2) + '%';
-    if (toTop) toTop.classList.toggle('visible', window.scrollY > 640);
-  }
-  function onScroll() {
-    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+  function updateBar() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? (window.scrollY / h) * 100 : 0;
+    if (bar) bar.style.width = p + '%';
+    if (btn) {
+      if (window.scrollY > 600) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  update();
+  window.addEventListener('scroll', updateBar, { passive: true });
+  window.addEventListener('resize', updateBar);
+  updateBar();
 
-  if (toTop) {
-    toTop.addEventListener('click', function () {
-      try { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-      catch (err) { window.scrollTo(0, 0); }
+  if (btn) {
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 })();
 </script>
 
-<!-- ═══════════ HERO PARALLAX · CLOCK · FORM · MAGNETIC ═══════════ -->
+<!-- ═══════════ FOOTER CLOCK SCRIPT ═══════════ -->
 <script>
 (function () {
-  'use strict';
-
-  var reduceMotion = window.matchMedia &&
-                     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Hero parallax
-  var heroImg = document.querySelector('.hero-img');
-  var parallaxTicking = false;
-
-  function parallax() {
-    parallaxTicking = false;
-    if (!heroImg) return;
-    var y = window.scrollY;
-    if (y < window.innerHeight * 1.2) {
-      heroImg.style.transform = 'translateY(' + (y * 0.1).toFixed(1) + 'px)';
-    }
-  }
-
-  if (heroImg && !reduceMotion) {
-    window.addEventListener('scroll', function () {
-      if (!parallaxTicking) {
-        parallaxTicking = true;
-        window.requestAnimationFrame(parallax);
-      }
-    }, { passive: true });
-  }
-
-  // Footer clock (IST)
-  var clock = document.getElementById('footerClock');
-
+  var el = document.getElementById('footerClock');
+  if (!el) return;
   function tick() {
-    if (!clock) return;
-    try {
-      var fmt = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Asia/Kolkata', hour12: false,
-        hour: '2-digit', minute: '2-digit', second: '2-digit'
-      });
-      clock.textContent = fmt.format(new Date());
-    } catch (e) {
-      var d = new Date();
-      clock.textContent =
-        ('0' + d.getHours()).slice(-2) + ':' +
-        ('0' + d.getMinutes()).slice(-2) + ':' +
-        ('0' + d.getSeconds()).slice(-2);
-    }
+    var now = new Date();
+    var utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    var ist = new Date(utc + 5.5 * 3600000);
+    var h = String(ist.getHours()).padStart(2, '0');
+    var m = String(ist.getMinutes()).padStart(2, '0');
+    var s = String(ist.getSeconds()).padStart(2, '0');
+    el.textContent = h + ':' + m + ':' + s + ' IST';
   }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
 
-  if (clock) { tick(); setInterval(tick, 1000); }
-
-  // Enquiry form → mailto
-  var form   = document.getElementById('enquiryForm');
+<!-- ═══════════ ENQUIRY FORM SCRIPT ═══════════ -->
+<script>
+(function () {
+  var form = document.getElementById('enquiryForm');
   var status = document.getElementById('formStatus');
+  if (!form) return;
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    var data = new FormData(form);
+    var name = data.get('Name') || '';
+    var phone = data.get('Phone') || '';
+    var email = data.get('Email') || '';
+    var type = data.get('Project type') || '';
+    var message = data.get('Message') || '';
 
-      var name  = (document.getElementById('fName')    || {}).value || '';
-      var phone = (document.getElementById('fPhone')   || {}).value || '';
-      var email = (document.getElementById('fEmail')   || {}).value || '';
-      var type  = (document.getElementById('fProject') || {}).value || '';
-      var msg   = (document.getElementById('fMessage') || {}).value || '';
+    var subject = 'Project Enquiry — ' + (type || 'General') + ' — ' + name;
+    var body = 'Name: ' + name + '\n'
+             + 'Phone: ' + phone + '\n'
+             + 'Email: ' + email + '\n'
+             + 'Project type: ' + type + '\n\n'
+             + 'Message:\n' + message;
 
-      if (!name.trim() || !phone.trim() || !email.trim() || !type) {
-        if (status) {
-          status.textContent = 'Please complete the required fields.';
-          status.classList.add('on');
-        }
-        return;
-      }
+    window.location.href = 'mailto:arkonbuildtech@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
 
-      if (status) {
-        status.textContent = 'Thank you — opening your mail client…';
-        status.classList.add('on');
-      }
-
-      var subject = encodeURIComponent('Project enquiry — ' + type);
-      var body = encodeURIComponent(
-        'Name: ' + name + '\n' +
-        'Phone: ' + phone + '\n' +
-        'Email: ' + email + '\n' +
-        'Project type: ' + type + '\n\n' + msg
-      );
-      window.location.href =
-        'mailto:arkonbuildtech@gmail.com?subject=' + subject + '&body=' + body;
-    });
-  }
-
-  // Subtle magnetic buttons
-  var magnets = document.querySelectorAll('.magnetic');
-  Array.prototype.forEach.call(magnets, function (btn) {
-    btn.addEventListener('mousemove', function (e) {
-      var r = btn.getBoundingClientRect();
-      var x = e.clientX - r.left - r.width / 2;
-      var y = e.clientY - r.top - r.height / 2;
-      btn.style.transform =
-        'translate(' + (x * 0.1).toFixed(1) + 'px,' + (y * 0.16 - 2).toFixed(1) + 'px)';
-    });
-    btn.addEventListener('mouseleave', function () {
-      btn.style.transform = '';
-    });
+    if (status) status.classList.add('on');
   });
 })();
 </script>
